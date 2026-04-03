@@ -12,71 +12,66 @@ st.set_page_config(page_title="Numérologie Pro", page_icon="✨", layout="cente
 # --- DESIGN NUIT ÉTOILÉE : LISIBILITÉ MAXIMALE ---
 # --- DESIGN FINAL : LISIBILITÉ TOTALE & CADRE OR ---
 # --- DESIGN FINAL : CONTRASTE ABSOLU ---
+# --- DESIGN FINAL : FORCE L'OPACITÉ BLANCHE ---
 st.markdown("""
     <style>
-    /* 1. LE FOND GLOBAL (Bleu Nuit / Violet subtil) */
+    /* 1. LE FOND GLOBAL */
     .stApp {
         background: linear-gradient(135deg, #051937 0%, #1a1c4b 100%) !important;
         background-attachment: fixed;
     }
 
-    /* 2. LE TITRE (Or) */
+    /* 2. LE TITRE OR */
     h1 {
         color: #D4AF37 !important;
         text-align: center;
         text-transform: uppercase;
-        letter-spacing: 2px;
     }
 
-    /* 3. LES TABLEAUX (EXPANDERS) : ON FORCE LE BLANC PUR */
-    /* On cible TOUT l'élément expander */
-    .st-emotion-cache-p6495m, .st-emotion-cache-p6495m div, .st-emotion-cache-p6495m p {
-        background-color: #ffffff !important; /* Fond Blanc */
-        color: #000000 !important;           /* Texte Noir Pur */
-    }
-
-    /* Force la couleur noire sur TOUS les textes dans les expanders */
-    .stExpander div, .stExpander p, .stExpander span, .stExpander li {
-        color: #000000 !important;
-        font-weight: 500 !important;
-    }
-
-    /* Style de l'en-tête de l'expander (Mois + Vibration) */
-    .st-emotion-cache-p6495m {
+    /* 3. FORCE LE FOND BLANC OPAQUE SUR LE TABLEAU (EXPANDER) */
+    /* On cible TOUT le conteneur de l'expander */
+    div[data-testid="stExpander"] {
+        background-color: #ffffff !important; /* BLANC PUR */
         border: 2px solid #D4AF37 !important;
         border-radius: 10px !important;
         margin-bottom: 10px !important;
     }
 
-    /* 4. LES TITRES INTERNES (Pro, Coeur, etc.) */
+    /* Force le fond blanc sur le contenu INTERNE une fois ouvert */
+    div[data-testid="stExpanderDetails"] {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    /* 4. FORCE LE TEXTE EN NOIR PUR DANS L'EXPANDER */
+    div[data-testid="stExpander"] p, 
+    div[data-testid="stExpander"] span, 
+    div[data-testid="stExpander"] label,
+    div[data-testid="stExpander"] h4 {
+        color: #000000 !important;
+        background-color: transparent !important; /* Pour éviter les sur-couches */
+    }
+
+    /* 5. STYLE DES TITRES DE RUBRIQUES (PRO, COEUR...) */
     h4 {
-        color: #1a1c4b !important; /* Bleu très foncé pour bien lire */
+        color: #1a1c4b !important;
         border-bottom: 2px solid #D4AF37 !important;
         margin-top: 15px !important;
         font-weight: bold !important;
     }
 
-    /* 5. LES LABELS DU FORMULAIRE (Prénom, Nom en Or) */
-    label {
+    /* 6. LABELS HORS TABLEAU (Prénom, Nom...) en OR */
+    .stWidgetForm label {
         color: #D4AF37 !important;
         font-weight: bold !important;
     }
 
-    /* 6. LE BOUTON (Or Royal) */
+    /* 7. LE BOUTON OR */
     .stButton>button {
         background: linear-gradient(90deg, #D4AF37, #FBF5B7) !important;
         color: #051937 !important;
         font-weight: bold !important;
-        border-radius: 5px !important;
-        border: none !important;
         width: 100% !important;
-        height: 3em !important;
-    }
-
-    /* 7. CHAMPS DE SAISIE */
-    input {
-        background-color: #ffffff !important;
-        color: #000000 !important;
     }
     </style>
     """, unsafe_allow_html=True)
