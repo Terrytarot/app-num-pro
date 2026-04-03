@@ -6,67 +6,76 @@ st.set_page_config(page_title="Numérologie Pro", page_icon="✨", layout="cente
 # --- DESIGN & ESTHÉTIQUE ---
 # --- DESIGN ÉPURÉ & LUMINEUX ---
 # --- DESIGN ÉQUILIBRÉ (SÉCURISÉ & LISIBLE) ---
+# --- DESIGN COSMIQUE : BLEU NUIT, VIOLET & OR ---
 st.markdown("""
     <style>
-    /* Fond de l'application (Gris bleu apaisant) */
+    /* Fond de l'application (Dégradé Bleu Nuit vers Violet Sombre) */
     .stApp {
-        background-color: #2c3e50;
+        background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
     }
     
-    /* Titre principal (Or) */
+    /* Titre principal (Or Lumineux avec ombre) */
     h1 {
         color: #D4AF37;
         text-align: center;
-        font-family: 'Helvetica', sans-serif;
-        font-weight: 300;
-        letter-spacing: 1px;
-        padding-top: 20px;
+        font-family: 'Georgia', serif;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        padding-top: 30px;
+        font-size: 2.5rem !important;
     }
 
-    /* Cartes de texte (Blanches pour une lecture parfaite) */
+    /* Cartes des mois (Fond très clair pour la lecture + Cadre Or) */
     .st-emotion-cache-p6495m { 
-        background-color: #ffffff !important;
-        border-radius: 12px !important;
-        border-top: 5px solid #D4AF37 !important; /* Liseré doré protecteur */
-        box-shadow: 0px 10px 15px rgba(0,0,0,0.2) !important;
-        margin-bottom: 20px !important;
+        background-color: #fdfdfd !important; /* Presque blanc pour lire sans effort */
+        border: 2px solid #D4AF37 !important; /* Cadre Or */
+        border-radius: 15px !important;
+        box-shadow: 0px 0px 15px rgba(212, 175, 55, 0.3) !important; /* Halo doré */
+        margin-bottom: 25px !important;
     }
     
-    /* Texte dans les cartes (Noir profond pour lisibilité) */
+    /* Texte à l'intérieur des cartes (Noir Bleu pour contraste) */
     .stMarkdown p {
-        color: #1a1a1a !important;
-        line-height: 1.7;
+        color: #1a1c2c !important;
+        line-height: 1.8;
         font-size: 1.05rem;
-        padding: 5px;
+        font-weight: 400;
     }
 
-    /* Titres des rubriques (Bleu Marine) */
+    /* Titres des rubriques (Violet Foncé / Marine) */
     h4 {
-        color: #1a2a6c !important;
+        color: #302b63 !important;
         font-weight: 700 !important;
+        border-bottom: 2px solid #D4AF37;
+        padding-bottom: 5px;
+        margin-top: 20px !important;
         text-transform: uppercase;
-        font-size: 0.9rem !important;
-        letter-spacing: 1px;
-        margin-top: 25px !important;
-        border-bottom: 1px solid #eee;
+        font-size: 0.85rem !important;
     }
 
-    /* Bouton (Or avec texte sombre) */
+    /* Bouton (Dégradé Or) */
     .stButton>button {
         width: 100%;
-        background-color: #D4AF37 !important;
-        color: #2c3e50 !important;
+        background: linear-gradient(90deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) !important;
+        color: #1a1c2c !important;
         font-weight: bold !important;
-        border-radius: 8px !important;
+        border-radius: 10px !important;
         border: none !important;
         height: 3.5em !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
-    
-    /* Info box (Intro) */
+
+    /* Bloc d'introduction (Violet transparent liseré Or) */
     .stAlert {
-        background-color: #34495e !important;
+        background-color: rgba(48, 43, 99, 0.6) !important;
         border: 1px solid #D4AF37 !important;
         color: #ffffff !important;
+    }
+    
+    /* Couleur des labels (Prénom, Nom...) en blanc pour fond sombre */
+    label {
+        color: #ffffff !important;
+        font-weight: bold !important;
     }
     </style>
     """, unsafe_allow_html=True)
