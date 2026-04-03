@@ -13,6 +13,7 @@ st.set_page_config(page_title="Numérologie Pro", page_icon="✨", layout="cente
 # --- DESIGN FINAL : LISIBILITÉ TOTALE & CADRE OR ---
 # --- DESIGN FINAL : CONTRASTE ABSOLU ---
 # --- DESIGN FINAL : FORCE L'OPACITÉ BLANCHE ---
+# --- DESIGN FINAL : LISIBILITÉ TOTALE (TABLEAUX + INTRO/CONCLU) ---
 st.markdown("""
     <style>
     /* 1. LE FOND GLOBAL */
@@ -26,33 +27,43 @@ st.markdown("""
         color: #D4AF37 !important;
         text-align: center;
         text-transform: uppercase;
+        font-weight: bold;
     }
 
     /* 3. FORCE LE FOND BLANC OPAQUE SUR LE TABLEAU (EXPANDER) */
-    /* On cible TOUT le conteneur de l'expander */
     div[data-testid="stExpander"] {
-        background-color: #ffffff !important; /* BLANC PUR */
+        background-color: #ffffff !important;
         border: 2px solid #D4AF37 !important;
         border-radius: 10px !important;
-        margin-bottom: 10px !important;
+        margin-bottom: 15px !important;
     }
-
-    /* Force le fond blanc sur le contenu INTERNE une fois ouvert */
     div[data-testid="stExpanderDetails"] {
         background-color: #ffffff !important;
-        color: #000000 !important;
     }
 
     /* 4. FORCE LE TEXTE EN NOIR PUR DANS L'EXPANDER */
     div[data-testid="stExpander"] p, 
     div[data-testid="stExpander"] span, 
-    div[data-testid="stExpander"] label,
     div[data-testid="stExpander"] h4 {
         color: #000000 !important;
-        background-color: transparent !important; /* Pour éviter les sur-couches */
     }
 
-    /* 5. STYLE DES TITRES DE RUBRIQUES (PRO, COEUR...) */
+    /* 5. FIX POUR L'INTRO ET LA CONCLUSION (PLUS DE BLEU SUR BLEU) */
+    /* On cible les blocs st.info et st.success */
+    .stAlert {
+        background-color: rgba(255, 255, 255, 0.1) !important; /* Fond très léger pour voir le dégradé derrière */
+        border: 1px solid #D4AF37 !important;
+        border-radius: 10px !important;
+    }
+    
+    /* On force le texte de l'intro et conclu en BLANC ou OR */
+    .stAlert p, .stAlert div {
+        color: #ffffff !important; /* Texte Blanc Pur */
+        font-size: 1.1rem !important;
+        font-style: italic;
+    }
+
+    /* 6. STYLE DES TITRES DE RUBRIQUES (PRO, COEUR...) DANS LE TABLEAU */
     h4 {
         color: #1a1c4b !important;
         border-bottom: 2px solid #D4AF37 !important;
@@ -60,18 +71,20 @@ st.markdown("""
         font-weight: bold !important;
     }
 
-    /* 6. LABELS HORS TABLEAU (Prénom, Nom...) en OR */
-    .stWidgetForm label {
+    /* 7. LABELS DU FORMULAIRE (Prénom, Nom...) en OR */
+    label {
         color: #D4AF37 !important;
         font-weight: bold !important;
     }
 
-    /* 7. LE BOUTON OR */
+    /* 8. LE BOUTON OR */
     .stButton>button {
         background: linear-gradient(90deg, #D4AF37, #FBF5B7) !important;
         color: #051937 !important;
         font-weight: bold !important;
         width: 100% !important;
+        border-radius: 10px !important;
+        height: 3.5em !important;
     }
     </style>
     """, unsafe_allow_html=True)
