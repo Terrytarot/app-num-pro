@@ -232,28 +232,48 @@ else:
         submit = st.form_submit_button("Générer mon rapport")
 
     if submit:
+   if submit:
         st.markdown(f"### Rapport pour {prenom} {nom}")
         st.write(INTRO)
         
-        d, m = date_n.day, date_n.month
+        # 1. On définit le point de départ : le mois prochain
+        maintenant = datetime.now()
+        mois_depart = maintenant.month + 1
+        annee_depart = maintenant.year
+        
+        # Si on est en décembre, le mois prochain est janvier de l'année suivante
+        if mois_depart > 12:
+            mois_depart = 1
+            annee_depart += 1
+
         mois_noms = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
         compteur_vib = {}
 
-        for m_idx in range(12):
-            # Calcul standard Numérologie
-            ap = reduire(d + m + annee_cible)
-            vib_mois = reduire(ap + (m_idx + 1))
+        # 2. On boucle 12 fois pour avoir exactement 12 mois glissants
+        for i in range(12):
+            # Calcul du mois et de l'année en cours de boucle
+            m_actuel_idx = (mois_depart - 1 + i) % 12  # Index de 0 à 11
+            annee_actuelle = annee_depart + (mois_depart - 1 + i) // 12
+            
+            # --- CALCUL NUMÉROLOGIQUE ---
+            # Année Personnelle = Jour + Mois + Année en cours
+            ap = reduire(date_n.day + date_n.month + annee_actuelle)
+            # Mois Personnel = Année Personnelle + Mois en cours
+            vib_mois = reduire(ap + (m_actuel_idx + 1))
             
             # Gestion des versions v1, v2, v3
             compteur_vib[vib_mois] = compteur_vib.get(vib_mois, 0) + 1
             v_key = f"v{min(compteur_vib[vib_mois], 3)}"
             
-            with st.expander(f"✨ {mois_noms[m_idx]} {annee_cible} | Vibration {vib_mois}"):
+            # 3. Affichage de l'onglet
+            with st.expander(f"✨ {mois_noms[m_actuel_idx]} {annee_actuelle} | Vibration {vib_mois}"):
                 if vib_mois in DATA_TEXTES:
                     txt = DATA_TEXTES[vib_mois][v_key]
                     st.write(f"**💼 Professionnel :** {txt['pro']}")
                     st.write(f"**❤️ Cœur :** {txt['coeur']}")
                     st.write(f"**💰 Argent :** {txt['argent']}")
                     st.write(f"**🌿 Bien-être :** {txt['bienetre']}")
+                else:
+                    st.error(f"Texte manquant pour la vibration {vib_mois}")
         
         st.info(CONCLUSION)
