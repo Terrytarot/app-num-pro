@@ -11,11 +11,11 @@ def reduire(n):
         n = sum(int(digit) for digit in str(n))
     return n
 
-# --- TEXTES FIXES (NE PAS CHANGER) ---
+# --- TEXTES FIXES ---
 INTRO = "Le thème numérologique des 12 mois glissants est une boussole vibratoire qui vous permet d'anticiper les énergies dominantes. Chaque mois possède sa propre fréquence, influençant vos décisions et votre état d'esprit."
 CONCLUSION = "Que ces vibrations vous guident vers votre plus bel accomplissement et vous apportent la clarté nécessaire à votre épanouissement."
 
-# --- BASE DE DONNÉES : TEXTES LONGS (QUANTITATIF) ---
+# --- BASE DE DONNÉES : TEXTES LONGS ET COMPLETS ---
 DATA_TEXTES = {
     1: {
         "pro": "L'aube d'un cycle nouveau se lève sur votre Œuvre, marquant le début d'une ère où votre volonté individuelle devient le moteur principal de votre réussite. Cette vibration de primauté vous exhorte à l'initiative pure et à la sortie de votre zone de confort habituelle. Ne soyez point dans l'attente d'une validation extérieure, car l'univers favorise en ce moment les pionniers et ceux qui osent briser les codes établis. C'est le temps de l'affirmation, de l'indépendance et du commandement naturel. Forgez vos projets avec la force de celui qui trace son propre sillage dans une terre encore vierge d'idées.",
@@ -103,6 +103,7 @@ else:
         st.info(INTRO)
 
         maintenant = datetime.now()
+        # Calcul du début de l'affichage (mois prochain)
         m_start = maintenant.month + 1
         a_start = maintenant.year
         if m_start > 12:
@@ -113,14 +114,16 @@ else:
 
         for i in range(12):
             idx_mois = (m_start - 1 + i) % 12
+            # Calcul de l'année pour le mois en cours dans la boucle
             an_actuelle = a_start + (m_start - 1 + i) // 12
             
-            # CALCULS
+            # CALCULS RIGOUREUX
             ap = reduire(dnais.day + dnais.month + an_actuelle)
             vib = reduire(ap + (idx_mois + 1))
             
-            # AFFICHAGE
+            # AFFICHAGE SANS EXCEPTION
             with st.expander(f"📅 {noms_mois[idx_mois]} {an_actuelle} | Vibration {vib}"):
+                # On récupère les textes de la vibration calculée
                 textes = DATA_TEXTES[vib]
                 st.markdown("#### 💼 Professionnel")
                 st.write(textes["pro"])
