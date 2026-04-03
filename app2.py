@@ -8,73 +8,73 @@ st.set_page_config(page_title="Numérologie Pro", page_icon="✨", layout="cente
 # --- DESIGN ÉQUILIBRÉ (SÉCURISÉ & LISIBLE) ---
 # --- DESIGN COSMIQUE : BLEU NUIT, VIOLET & OR ---
 # --- DESIGN BLEU ROYAL & OR ÉTINCELANT ---
+# --- DESIGN SAPHIR, AMÉTHYSTE & OR ---
 st.markdown("""
     <style>
-    /* Fond : Bleu Nuit Royal avec un léger dégradé vers le Violet Clair */
+    /* Fond : Bleu Nuit profond avec un reflet Violet très subtil (pas de rouge) */
     .stApp {
-        background: linear-gradient(180deg, #1a2a6c 0%, #302b63 50%, #b21f1f 100%);
+        background: linear-gradient(180deg, #051937 0%, #002d51 40%, #1a1c4b 80%, #2a1b4d 100%);
         background-attachment: fixed;
     }
     
-    /* Titre principal : Or Pur et brillant */
+    /* Titre principal : Or étincelant */
     h1 {
-        color: #f1c40f !important;
+        color: #D4AF37 !important;
         text-align: center;
-        font-family: 'Times New Roman', serif;
+        font-family: 'Garamond', serif;
         text-transform: uppercase;
-        letter-spacing: 4px;
+        letter-spacing: 3px;
         padding: 40px 0;
-        text-shadow: 1px 1px 10px rgba(241, 196, 15, 0.5);
+        text-shadow: 0px 0px 15px rgba(212, 175, 55, 0.4);
     }
 
-    /* Cadres des mois : Blanc Pur nacré avec Bordure Or 3px */
+    /* Cadres des mois : Blanc Pur (Lisibilité maximale) avec Bordure Or */
     .st-emotion-cache-p6495m { 
         background-color: #ffffff !important;
-        border: 3px solid #D4AF37 !important;
-        border-radius: 20px !important;
-        box-shadow: 0px 8px 30px rgba(0,0,0,0.3) !important;
-        margin-bottom: 30px !important;
-        padding: 10px !important;
+        border: 2px solid #D4AF37 !important;
+        border-radius: 15px !important;
+        box-shadow: 0px 4px 20px rgba(0,0,0,0.5) !important;
+        margin-bottom: 25px !important;
     }
     
-    /* Texte : Noir Anthracite pour une lecture parfaite */
+    /* Texte : Noir très contrasté pour la lecture */
     .stMarkdown p {
-        color: #1a1a1a !important;
+        color: #0c0e12 !important;
         line-height: 1.8;
         font-size: 1.1rem;
     }
 
-    /* Titres des rubriques : Or avec ligne de séparation */
+    /* Titres des rubriques : Or avec trait fin */
     h4 {
         color: #b38728 !important;
-        font-weight: 800 !important;
+        font-weight: bold !important;
         border-bottom: 1px solid #D4AF37;
-        margin-top: 25px !important;
-        font-size: 1rem !important;
+        margin-top: 20px !important;
+        font-size: 0.95rem !important;
+        text-transform: uppercase;
     }
 
-    /* Bouton : Or Métallique avec texte bleu nuit */
+    /* Bouton : Or Royal contrasté */
     .stButton>button {
-        background: linear-gradient(145deg, #f1c40f, #d4af37) !important;
-        color: #1a2a6c !important;
-        font-weight: 900 !important;
-        border-radius: 50px !important;
-        border: 2px solid white !important;
-        height: 4em !important;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        background: linear-gradient(135deg, #D4AF37 0%, #FBF5B7 50%, #D4AF37 100%) !important;
+        color: #051937 !important;
+        font-weight: bold !important;
+        border-radius: 8px !important;
+        border: 1px solid #ffffff !important;
+        height: 3.5em !important;
     }
 
-    /* Champs de saisie (Inputs) : Blanc avec texte bleu */
-    input {
-        border-radius: 10px !important;
-        border: 2px solid #D4AF37 !important;
+    /* Formulaire : Labels en blanc */
+    label {
+        color: #D4AF37 !important;
+        font-weight: 500 !important;
     }
     
-    /* Labels des formulaires en blanc */
-    label {
-        color: white !important;
-        font-size: 1.1rem !important;
-        font-weight: 500 !important;
+    /* Champs de saisie */
+    .stTextInput input, .stDateInput input {
+        background-color: rgba(255, 255, 255, 0.9) !important;
+        border: 1px solid #D4AF37 !important;
+        color: #051937 !important;
     }
     </style>
     """, unsafe_allow_html=True)
