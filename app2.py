@@ -3,7 +3,7 @@ from datetime import datetime
 
 # --- CONFIGURATION ---
 st.set_page_config(page_title="Numérologie Pro", page_icon="✨", layout="centered")
-
+st.set_page_config(...)
 def reduire(n):
     while n > 9:
         n = sum(int(digit) for digit in str(n))
