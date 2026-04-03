@@ -4,9 +4,8 @@ from datetime import datetime
 # --- CONFIGURATION DE LA PAGE ---
 st.set_page_config(page_title="Numérologie Pro", page_icon="✨", layout="centered")
 
-# --- FONCTION DE CALCUL CORRIGÉE ---
+# --- FONCTION DE CALCUL ---
 def reduire(n):
-    """Réduit un nombre à un chiffre (1-9). On réduit le 11, 22, 33 en 2, 4, 6 pour l'affichage des textes."""
     while n > 9:
         n = sum(int(digit) for digit in str(n))
     return n
@@ -15,7 +14,7 @@ def reduire(n):
 INTRO = """Le thème numérologique des 12 mois glissants est une boussole vibratoire qui vous permet d'anticiper les énergies dominantes..."""
 CONCLUSION = """Que ces vibrations vous guident vers votre plus bel accomplissement..."""
 
-# --- BASE DE DONNÉES DES TEXTES 100% COMPLETS ---
+# --- BASE DE DONNÉES DES TEXTES ---
 DATA_TEXTES = {
     1: {
         "v1": {
@@ -88,7 +87,7 @@ DATA_TEXTES = {
             "pro": """Le retour du bâtisseur dans votre cycle vous demande de vérifier avec minutie la solidité de ce que vous avez érigé jusqu'ici. C'est un mois consacré au perfectionnement technique, à la révision des procédures et à la finition soignée de vos projets en cours. Votre expertise devient votre bouclier le plus sûr face à la concurrence.""",
             "coeur": """L'engagement sentimental se confirme et s'approfondit sous le poids des responsabilités partagées assumées avec joie. Ce qui était auparavant une structure nécessaire devient désormais un véritable sanctuaire émotionnel où vous vous sentez protégé. Le foyer et la famille sont au centre de vos préoccupations.""",
             "argent": """La patience et le travail acharné finissent par payer de manière concrète, apportant des résultats tangibles à vos finances. Vos efforts passés commencent à se cristalliser en une sécurité matérielle plus confortable, vous permettant d'envisager des investissements de consolidation.""",
-            "bienetre": """Attention à ne point tomber dans une certaine rigidité, tant physique que mentale, qui pourrait finir par vous fragiliser. Apprenez à assouplir votre discipline quotidienne pour ne point briser votre propre résistance interne par un excès d'exigence envers vous-même."""
+            "bienetre": """Apprenez à assouplir votre discipline quotidienne pour ne point briser votre propre résistance interne par un excès d'exigence envers vous-même."""
         },
         "v3": {
             "pro": """Vous atteignez désormais le rang de Maître d'Œuvre, celui qui n'a plus besoin de manipuler chaque pierre pour que l'édifice monte. La structure que vous avez bâtie avec tant de peine fonctionne désormais avec une efficacité qui vous permet de déléguer les détails opérationnels. Le succès est ici le couronnement d'une vie.""",
@@ -179,4 +178,75 @@ DATA_TEXTES = {
     },
     9: {
         "v1": {
-            "pro": """L'heure est à l'Achèvement de vos projets et à l'Ouverture sur le monde. Un cycle majeur se termine, vous demandant de clore les dossiers en suspens. Votre rayonnement dépasse vos frontières habituelles pour toucher un public vaste. C'est le temps de la transmission. La fin d'une étape est la promesse d'une ascension future.""
+            "pro": """L'heure est à l'Achèvement de vos projets et à l'Ouverture sur le monde. Un cycle majeur se termine, vous demandant de clore les dossiers en suspens. Votre rayonnement dépasse vos frontières habituelles pour toucher un public vaste. C'est le temps de la transmission. La fin d'une étape est la promesse d'une ascension future.""",
+            "coeur": """L'amour se fait universel et compassionnel, vous poussant à donner un sens plus vaste à vos relations. C'est un mois idéal pour les grands voyages intérieurs et un lâcher-prise sur les blessures du passé. Laissez votre cœur s'ouvrir à l'inconnu ; c'est dans le don désintéressé que vous trouverez votre plus grande satisfaction.""",
+            "argent": """L'abondance vient par des voies détournées ou des opportunités liées à l'étranger. Ne retenez pas les ressources avec avarice ; laissez-les circuler, car c'est ainsi que la nouvelle richesse se prépare. C'est un temps pour régler vos derniers comptes matériels et préparer le terrain vierge du prochain cycle. L'argent est une récompense.""",
+            "bienetre": """Un besoin de purification totale du corps et de l'esprit se fait sentir. Nettoyez votre organisme et libérez votre mental des rancœurs anciennes. L'écoute de votre intuition vous apportera les clés de votre régénération. Votre santé dépend de votre capacité à lâcher ce qui est mort pour laisser la place au flux nouveau."""
+        },
+        "v2": {
+            "pro": """La boucle est bouclée et vous avez tiré les leçons des expériences passées. Ce mois agit comme une passerelle vers votre futur, vous demandant de partager votre expérience. Votre autorité est morale et spirituelle. C'est un temps pour le bilan, la gratitude et la préparation sereine de votre prochaine mutation. Vous finissez en beauté.""",
+            "coeur": """Le pardon absolu libère enfin votre cœur de ses dernières chaînes. Les liens qui n'ont plus lieu d'être se dissolvent sans douleur, laissant la place à une clarté émotionnelle totale. Vos relations véritables atteignent une dimension de dévouement sublime. Vous vous sentez enfin complet et capable d'aimer sans attente.""",
+            "argent": """Le bilan financier est positif si vous avez agi avec humanité. La chance est présente de manière subtile, liée à des projets à vocation collective. Réglez vos derniers comptes et préparez-vous à repartir sur des bases neuves. Vous vivez dans l'abondance du sage qui possède tout car il ne désire plus rien d'inutile.""",
+            "bienetre": """Une paix inaltérable s'installe dans chaque fibre de votre être. Votre santé sereine ne dépend plus des circonstances extérieures. Utilisez ce temps pour méditer sur la beauté de votre parcours. La renaissance est imminente. Continuez à honorer ce temple avec une gratitude immense pour tout ce qu'il vous a offert."""
+        },
+        "v3": {
+            "pro": """Vous atteignez l'Inspiration Mondiale : vos projets prennent une dimension altruiste qui touche le plus grand nombre. Vous travaillez désormais pour laisser un héritage de sagesse. Votre carrière se termine parée d'une aura de réussite éthique. Vous avez transmuté le travail en œuvre sacrée. Vous êtes devenu une source de lumière.""",
+            "coeur": """L'Amour Inconditionnel est votre réalité, faisant accéder à un état de grâce affective. Vous n'avez plus besoin de réciprocité pour aimer, car votre cœur est un océan de paix inépuisable. Vos relations sont empreintes d'une poésie spirituelle magnifique. Vous vivez dans la gratitude absolue d'avoir aimé. Votre cœur est une porte ouverte.""",
+            "argent": """L'Héritage Spirituel et financier se manifeste : vos finances se stabilisent par des retours de fortune liés à votre générosité passée. Vous ne manquez de rien pour entamer le nouveau cycle de vie. Vous avez appris que la véritable monnaie est celle de l'âme. Vous vivez dans l'opulence de l'esprit. Tout est accompli.""",
+            "bienetre": """Une Transmutation Physique totale s'opère, vous faisant vous sentir léger et libéré de la pesanteur. Votre corps est purifié, prêt pour la nouvelle incarnation vibratoire qui vous attend. Une énergie sereine irrigue vos cellules pour les maintenir en joie. Offrez votre rayonnement à ceux qui vous entourent. Tout est prêt pour la lumière."""
+        }
+    }
+}
+
+# --- GESTION DE LA CONNEXION ---
+if 'auth' not in st.session_state:
+    st.session_state['auth'] = False
+
+# --- INTERFACE ---
+if not st.session_state['auth']:
+    st.title("🔐 Espace Client")
+    with st.form("login"):
+        e = st.text_input("Email")
+        c = st.text_input("Code", type="password")
+        if st.form_submit_button("Valider"):
+            if e == "test@pro.com" and c == "1234":
+                st.session_state['auth'] = True
+                st.rerun()
+            else:
+                st.error("Erreur")
+else:
+    st.title("✨ Votre Thème Numérologique")
+    with st.form("infos"):
+        c1, c2 = st.columns(2)
+        prenom = c1.text_input("Prénom")
+        nom = c1.text_input("Nom")
+        dnais = c2.date_input("Naissance", min_value=datetime(1940, 1, 1))
+        btn = st.form_submit_button("Générer")
+
+    if btn:
+        st.markdown(f"### Rapport pour {prenom} {nom}")
+        st.write(INTRO)
+        m_dep = datetime.now().month + 1
+        a_dep = datetime.now().year
+        if m_dep > 12: 
+            m_dep = 1
+            a_dep += 1
+        
+        noms = ["Jan", "Fév", "Mar", "Avr", "Mai", "Juin", "Juil", "Août", "Sept", "Oct", "Nov", "Déc"]
+        compte = {}
+
+        for i in range(12):
+            idx = (m_dep - 1 + i) % 12
+            an_c = a_dep + (m_dep - 1 + i) // 12
+            vib = reduire(reduire(dnais.day + dnais.month + an_c) + (idx + 1))
+            
+            compte[vib] = compte.get(vib, 0) + 1
+            vk = f"v{min(compte[vib], 3)}"
+            
+            with st.expander(f"📅 {noms[idx]} {an_c} | Vibration {vib}"):
+                t = DATA_TEXTES[vib][vk]
+                st.write(f"**Pro :** {t['pro']}")
+                st.write(f"**Cœur :** {t['coeur']}")
+                st.write(f"**Argent :** {t['argent']}")
+                st.write(f"**Bien-être :** {t['bienetre']}")
+        st.info(CONCLUSION)
