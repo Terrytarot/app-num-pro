@@ -5,61 +5,68 @@ from datetime import datetime
 st.set_page_config(page_title="Numérologie Pro", page_icon="✨", layout="centered")
 # --- DESIGN & ESTHÉTIQUE ---
 # --- DESIGN ÉPURÉ & LUMINEUX ---
+# --- DESIGN ÉQUILIBRÉ (SÉCURISÉ & LISIBLE) ---
 st.markdown("""
     <style>
-    /* Fond de l'application (Gris très clair/Blanc cassé) */
+    /* Fond de l'application (Gris bleu apaisant) */
     .stApp {
-        background-color: #f8f9fa;
+        background-color: #2c3e50;
     }
     
-    /* Titre principal (Bleu Marine profond) */
+    /* Titre principal (Or) */
     h1 {
-        color: #1a2a6c;
+        color: #D4AF37;
         text-align: center;
-        font-family: 'Georgia', serif;
-        font-weight: 700;
-        padding-bottom: 30px;
+        font-family: 'Helvetica', sans-serif;
+        font-weight: 300;
+        letter-spacing: 1px;
+        padding-top: 20px;
     }
 
-    /* Style des cartes (Expanders) */
-    .st-emotion-cache-p6495m { /* Sélecteur pour l'en-tête de l'expander */
+    /* Cartes de texte (Blanches pour une lecture parfaite) */
+    .st-emotion-cache-p6495m { 
         background-color: #ffffff !important;
-        border-radius: 10px !important;
-        border: 1px solid #e0e0e0 !important;
-        box-shadow: 0px 2px 4px rgba(0,0,0,0.05) !important;
+        border-radius: 12px !important;
+        border-top: 5px solid #D4AF37 !important; /* Liseré doré protecteur */
+        box-shadow: 0px 10px 15px rgba(0,0,0,0.2) !important;
+        margin-bottom: 20px !important;
     }
     
-    /* Couleur du texte dans l'expander (Noir pour contraste max) */
+    /* Texte dans les cartes (Noir profond pour lisibilité) */
     .stMarkdown p {
-        color: #2c3e50 !important;
-        line-height: 1.6;
+        color: #1a1a1a !important;
+        line-height: 1.7;
         font-size: 1.05rem;
+        padding: 5px;
     }
 
-    /* Titres des rubriques (Bleu contrasté) */
+    /* Titres des rubriques (Bleu Marine) */
     h4 {
         color: #1a2a6c !important;
-        border-left: 4px solid #D4AF37; /* Petite barre dorée sur le côté */
-        padding-left: 10px !important;
-        margin-top: 20px !important;
-        font-weight: 600 !important;
+        font-weight: 700 !important;
+        text-transform: uppercase;
+        font-size: 0.9rem !important;
+        letter-spacing: 1px;
+        margin-top: 25px !important;
+        border-bottom: 1px solid #eee;
     }
 
-    /* Bouton principal (Bleu Marine avec texte blanc) */
+    /* Bouton (Or avec texte sombre) */
     .stButton>button {
         width: 100%;
-        background-color: #1a2a6c !important;
-        color: white !important;
-        border-radius: 5px !important;
-        height: 3em !important;
-        font-size: 1.1rem !important;
+        background-color: #D4AF37 !important;
+        color: #2c3e50 !important;
+        font-weight: bold !important;
+        border-radius: 8px !important;
+        border: none !important;
+        height: 3.5em !important;
     }
     
-    /* Ajustement de l'info box */
+    /* Info box (Intro) */
     .stAlert {
-        background-color: #ffffff !important;
-        border: 1px solid #d4af37 !important;
-        color: #1a2a6c !important;
+        background-color: #34495e !important;
+        border: 1px solid #D4AF37 !important;
+        color: #ffffff !important;
     }
     </style>
     """, unsafe_allow_html=True)
