@@ -4,61 +4,62 @@ from datetime import datetime
 # --- CONFIGURATION ---
 st.set_page_config(page_title="Numérologie Pro", page_icon="✨", layout="centered")
 # --- DESIGN & ESTHÉTIQUE ---
+# --- DESIGN ÉPURÉ & LUMINEUX ---
 st.markdown("""
     <style>
-    /* Fond de l'application */
+    /* Fond de l'application (Gris très clair/Blanc cassé) */
     .stApp {
-        background: linear-gradient(180deg, #0e1117 0%, #1a1c24 100%);
+        background-color: #f8f9fa;
     }
     
-    /* Titre principal */
+    /* Titre principal (Bleu Marine profond) */
     h1 {
-        color: #D4AF37; /* Or */
+        color: #1a2a6c;
         text-align: center;
-        font-family: 'Playfair Display', serif;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        padding-bottom: 20px;
+        font-family: 'Georgia', serif;
+        font-weight: 700;
+        padding-bottom: 30px;
     }
 
     /* Style des cartes (Expanders) */
-    .streamlit-expanderHeader {
-        background-color: #1e2130 !important;
-        border-radius: 8px !important;
-        border: 1px solid #3d4455 !important;
-        color: #D4AF37 !important; /* Texte en Or */
-        font-weight: bold !important;
+    .st-emotion-cache-p6495m { /* Sélecteur pour l'en-tête de l'expander */
+        background-color: #ffffff !important;
+        border-radius: 10px !important;
+        border: 1px solid #e0e0e0 !important;
+        box-shadow: 0px 2px 4px rgba(0,0,0,0.05) !important;
     }
     
-    /* Style du contenu des cartes */
-    .streamlit-expanderContent {
-        background-color: #161922 !important;
-        border: 1px solid #3d4455 !important;
-        border-top: none !important;
-        color: #e0e0e0 !important;
+    /* Couleur du texte dans l'expander (Noir pour contraste max) */
+    .stMarkdown p {
+        color: #2c3e50 !important;
+        line-height: 1.6;
+        font-size: 1.05rem;
     }
 
-    /* Titres des rubriques (Pro, Coeur, etc.) */
+    /* Titres des rubriques (Bleu contrasté) */
     h4 {
-        color: #D4AF37 !important;
-        border-bottom: 1px solid #3d4455;
-        padding-bottom: 5px;
-        margin-top: 15px !important;
+        color: #1a2a6c !important;
+        border-left: 4px solid #D4AF37; /* Petite barre dorée sur le côté */
+        padding-left: 10px !important;
+        margin-top: 20px !important;
+        font-weight: 600 !important;
     }
 
-    /* Bouton personnalisé */
+    /* Bouton principal (Bleu Marine avec texte blanc) */
     .stButton>button {
         width: 100%;
-        background-color: #D4AF37 !important;
-        color: #0e1117 !important;
-        font-weight: bold !important;
-        border-radius: 20px !important;
-        border: none !important;
-        transition: 0.3s;
+        background-color: #1a2a6c !important;
+        color: white !important;
+        border-radius: 5px !important;
+        height: 3em !important;
+        font-size: 1.1rem !important;
     }
-    .stButton>button:hover {
-        background-color: #f1c40f !important;
-        transform: scale(1.02);
+    
+    /* Ajustement de l'info box */
+    .stAlert {
+        background-color: #ffffff !important;
+        border: 1px solid #d4af37 !important;
+        color: #1a2a6c !important;
     }
     </style>
     """, unsafe_allow_html=True)
