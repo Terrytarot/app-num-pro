@@ -7,75 +7,74 @@ st.set_page_config(page_title="Numérologie Pro", page_icon="✨", layout="cente
 # --- DESIGN ÉPURÉ & LUMINEUX ---
 # --- DESIGN ÉQUILIBRÉ (SÉCURISÉ & LISIBLE) ---
 # --- DESIGN COSMIQUE : BLEU NUIT, VIOLET & OR ---
+# --- DESIGN BLEU ROYAL & OR ÉTINCELANT ---
 st.markdown("""
     <style>
-    /* Fond de l'application (Dégradé Bleu Nuit vers Violet Sombre) */
+    /* Fond : Bleu Nuit Royal avec un léger dégradé vers le Violet Clair */
     .stApp {
-        background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+        background: linear-gradient(180deg, #1a2a6c 0%, #302b63 50%, #b21f1f 100%);
+        background-attachment: fixed;
     }
     
-    /* Titre principal (Or Lumineux avec ombre) */
+    /* Titre principal : Or Pur et brillant */
     h1 {
-        color: #D4AF37;
+        color: #f1c40f !important;
         text-align: center;
-        font-family: 'Georgia', serif;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        padding-top: 30px;
-        font-size: 2.5rem !important;
+        font-family: 'Times New Roman', serif;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        padding: 40px 0;
+        text-shadow: 1px 1px 10px rgba(241, 196, 15, 0.5);
     }
 
-    /* Cartes des mois (Fond très clair pour la lecture + Cadre Or) */
+    /* Cadres des mois : Blanc Pur nacré avec Bordure Or 3px */
     .st-emotion-cache-p6495m { 
-        background-color: #fdfdfd !important; /* Presque blanc pour lire sans effort */
-        border: 2px solid #D4AF37 !important; /* Cadre Or */
-        border-radius: 15px !important;
-        box-shadow: 0px 0px 15px rgba(212, 175, 55, 0.3) !important; /* Halo doré */
-        margin-bottom: 25px !important;
+        background-color: #ffffff !important;
+        border: 3px solid #D4AF37 !important;
+        border-radius: 20px !important;
+        box-shadow: 0px 8px 30px rgba(0,0,0,0.3) !important;
+        margin-bottom: 30px !important;
+        padding: 10px !important;
     }
     
-    /* Texte à l'intérieur des cartes (Noir Bleu pour contraste) */
+    /* Texte : Noir Anthracite pour une lecture parfaite */
     .stMarkdown p {
-        color: #1a1c2c !important;
+        color: #1a1a1a !important;
         line-height: 1.8;
-        font-size: 1.05rem;
-        font-weight: 400;
+        font-size: 1.1rem;
     }
 
-    /* Titres des rubriques (Violet Foncé / Marine) */
+    /* Titres des rubriques : Or avec ligne de séparation */
     h4 {
-        color: #302b63 !important;
-        font-weight: 700 !important;
-        border-bottom: 2px solid #D4AF37;
-        padding-bottom: 5px;
-        margin-top: 20px !important;
-        text-transform: uppercase;
-        font-size: 0.85rem !important;
+        color: #b38728 !important;
+        font-weight: 800 !important;
+        border-bottom: 1px solid #D4AF37;
+        margin-top: 25px !important;
+        font-size: 1rem !important;
     }
 
-    /* Bouton (Dégradé Or) */
+    /* Bouton : Or Métallique avec texte bleu nuit */
     .stButton>button {
-        width: 100%;
-        background: linear-gradient(90deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) !important;
-        color: #1a1c2c !important;
-        font-weight: bold !important;
-        border-radius: 10px !important;
-        border: none !important;
-        height: 3.5em !important;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        background: linear-gradient(145deg, #f1c40f, #d4af37) !important;
+        color: #1a2a6c !important;
+        font-weight: 900 !important;
+        border-radius: 50px !important;
+        border: 2px solid white !important;
+        height: 4em !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
-    /* Bloc d'introduction (Violet transparent liseré Or) */
-    .stAlert {
-        background-color: rgba(48, 43, 99, 0.6) !important;
-        border: 1px solid #D4AF37 !important;
-        color: #ffffff !important;
+    /* Champs de saisie (Inputs) : Blanc avec texte bleu */
+    input {
+        border-radius: 10px !important;
+        border: 2px solid #D4AF37 !important;
     }
     
-    /* Couleur des labels (Prénom, Nom...) en blanc pour fond sombre */
+    /* Labels des formulaires en blanc */
     label {
-        color: #ffffff !important;
-        font-weight: bold !important;
+        color: white !important;
+        font-size: 1.1rem !important;
+        font-weight: 500 !important;
     }
     </style>
     """, unsafe_allow_html=True)
