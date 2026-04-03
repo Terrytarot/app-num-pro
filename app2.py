@@ -93,11 +93,13 @@ else:
     with st.form("numerologie"):
         c1, c2 = st.columns(2)
         prenom = c1.text_input("Prénom")
-        dnais = c2.date_input("Date de naissance", min_value=datetime(1940,1,1))
+        nom = c1.text_input("Nom de famille")
+        # Format français (DD/MM/YYYY) activé ici
+        dnais = c2.date_input("Date de naissance", min_value=datetime(1940,1,1), format="DD/MM/YYYY")
         submit = st.form_submit_button("Découvrir mon futur")
 
     if submit:
-        st.markdown(f"## Bonjour {prenom}")
+        st.markdown(f"## Bonjour {prenom} {nom}")
         st.info(INTRO)
 
         maintenant = datetime.now()
