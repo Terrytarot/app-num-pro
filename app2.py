@@ -3,7 +3,65 @@ from datetime import datetime
 
 # --- CONFIGURATION ---
 st.set_page_config(page_title="Numérologie Pro", page_icon="✨", layout="centered")
-st.set_page_config(...)
+# --- DESIGN & ESTHÉTIQUE ---
+st.markdown("""
+    <style>
+    /* Fond de l'application */
+    .stApp {
+        background: linear-gradient(180deg, #0e1117 0%, #1a1c24 100%);
+    }
+    
+    /* Titre principal */
+    h1 {
+        color: #D4AF37; /* Or */
+        text-align: center;
+        font-family: 'Playfair Display', serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding-bottom: 20px;
+    }
+
+    /* Style des cartes (Expanders) */
+    .streamlit-expanderHeader {
+        background-color: #1e2130 !important;
+        border-radius: 8px !important;
+        border: 1px solid #3d4455 !important;
+        color: #D4AF37 !important; /* Texte en Or */
+        font-weight: bold !important;
+    }
+    
+    /* Style du contenu des cartes */
+    .streamlit-expanderContent {
+        background-color: #161922 !important;
+        border: 1px solid #3d4455 !important;
+        border-top: none !important;
+        color: #e0e0e0 !important;
+    }
+
+    /* Titres des rubriques (Pro, Coeur, etc.) */
+    h4 {
+        color: #D4AF37 !important;
+        border-bottom: 1px solid #3d4455;
+        padding-bottom: 5px;
+        margin-top: 15px !important;
+    }
+
+    /* Bouton personnalisé */
+    .stButton>button {
+        width: 100%;
+        background-color: #D4AF37 !important;
+        color: #0e1117 !important;
+        font-weight: bold !important;
+        border-radius: 20px !important;
+        border: none !important;
+        transition: 0.3s;
+    }
+    .stButton>button:hover {
+        background-color: #f1c40f !important;
+        transform: scale(1.02);
+    }
+    </style>
+    """, unsafe_allow_html=True)
 def reduire(n):
     while n > 9:
         n = sum(int(digit) for digit in str(n))
