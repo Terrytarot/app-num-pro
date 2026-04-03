@@ -9,72 +9,76 @@ st.set_page_config(page_title="Numérologie Pro", page_icon="✨", layout="cente
 # --- DESIGN COSMIQUE : BLEU NUIT, VIOLET & OR ---
 # --- DESIGN BLEU ROYAL & OR ÉTINCELANT ---
 # --- DESIGN SAPHIR, AMÉTHYSTE & OR ---
+# --- DESIGN NUIT ÉTOILÉE : LISIBILITÉ MAXIMALE ---
 st.markdown("""
     <style>
-    /* Fond : Bleu Nuit profond avec un reflet Violet très subtil (pas de rouge) */
+    /* Fond : Bleu Nuit avec reflet Violet subtil (Épuré) */
     .stApp {
-        background: linear-gradient(180deg, #051937 0%, #002d51 40%, #1a1c4b 80%, #2a1b4d 100%);
+        background: linear-gradient(135deg, #0a0e27 0%, #1c1544 100%);
         background-attachment: fixed;
     }
     
-    /* Titre principal : Or étincelant */
+    /* Titre : Or étincelant sur fond sombre */
     h1 {
         color: #D4AF37 !important;
         text-align: center;
         font-family: 'Garamond', serif;
         text-transform: uppercase;
         letter-spacing: 3px;
-        padding: 40px 0;
-        text-shadow: 0px 0px 15px rgba(212, 175, 55, 0.4);
+        padding-top: 40px;
+        font-size: 2.2rem !important;
     }
 
-    /* Cadres des mois : Blanc Pur (Lisibilité maximale) avec Bordure Or */
+    /* LES CARTES : BLANC PUR (Essentiel pour lire le texte) */
     .st-emotion-cache-p6495m { 
-        background-color: #ffffff !important;
-        border: 2px solid #D4AF37 !important;
-        border-radius: 15px !important;
-        box-shadow: 0px 4px 20px rgba(0,0,0,0.5) !important;
+        background-color: #ffffff !important; /* Fond blanc pour les textes */
+        border: 2px solid #D4AF37 !important; /* Cadre Or */
+        border-radius: 12px !important;
+        box-shadow: 0px 4px 20px rgba(0,0,0,0.6) !important;
         margin-bottom: 25px !important;
     }
     
-    /* Texte : Noir très contrasté pour la lecture */
+    /* LE TEXTE : NOIR INTENSE (Lisibilité 100%) */
     .stMarkdown p {
-        color: #0c0e12 !important;
+        color: #1a1c2c !important; /* Texte sombre sur fond blanc */
         line-height: 1.8;
-        font-size: 1.1rem;
+        font-size: 1.15rem;
+        font-weight: 500;
+        padding: 5px 15px;
     }
 
-    /* Titres des rubriques : Or avec trait fin */
+    /* Titres de rubriques (Pro, Coeur...) : Violet Royal */
     h4 {
-        color: #b38728 !important;
-        font-weight: bold !important;
-        border-bottom: 1px solid #D4AF37;
+        color: #302b63 !important;
+        border-bottom: 1.5px solid #D4AF37;
         margin-top: 20px !important;
-        font-size: 0.95rem !important;
         text-transform: uppercase;
+        font-size: 0.9rem !important;
+        font-weight: 800 !important;
     }
 
-    /* Bouton : Or Royal contrasté */
+    /* Bouton : Or et Blanc */
     .stButton>button {
-        background: linear-gradient(135deg, #D4AF37 0%, #FBF5B7 50%, #D4AF37 100%) !important;
-        color: #051937 !important;
+        background-color: #D4AF37 !important;
+        color: #0a0e27 !important;
         font-weight: bold !important;
         border-radius: 8px !important;
-        border: 1px solid #ffffff !important;
         height: 3.5em !important;
+        border: 2px solid #ffffff !important;
     }
 
-    /* Formulaire : Labels en blanc */
+    /* Labels du formulaire (Prénom, Nom...) en Or */
     label {
         color: #D4AF37 !important;
-        font-weight: 500 !important;
+        font-size: 1.1rem !important;
+        font-weight: bold !important;
     }
-    
-    /* Champs de saisie */
+
+    /* Champs de saisie : Fond blanc pour bien voir ce qu'on tape */
     .stTextInput input, .stDateInput input {
-        background-color: rgba(255, 255, 255, 0.9) !important;
+        background-color: #ffffff !important;
+        color: #0a0e27 !important;
         border: 1px solid #D4AF37 !important;
-        color: #051937 !important;
     }
     </style>
     """, unsafe_allow_html=True)
