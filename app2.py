@@ -1,8 +1,8 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for, session
+#from flask import Flask, render_template, request, redirect, url_for, session
 from datetime import datetime
 
-app = Flask(__name__)
+#app = Flask(__name__)
 app.secret_key = "vibration-numerologique-secrete-2024"
 
 # --- CONFIGURATION / TEXTES FIXES ---
@@ -288,4 +288,4 @@ def generer_pro():
         return f"Erreur technique : {str(e)}"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    #app.run(debug=True)
