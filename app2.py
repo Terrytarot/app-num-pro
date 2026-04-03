@@ -15,6 +15,7 @@ st.set_page_config(page_title="Numérologie Pro", page_icon="✨", layout="cente
 # --- DESIGN FINAL : FORCE L'OPACITÉ BLANCHE ---
 # --- DESIGN FINAL : LISIBILITÉ TOTALE (TABLEAUX + INTRO/CONCLU) ---
 # --- DESIGN FINAL : ÉLÉGANCE OR & LISIBILITÉ TOTALE ---
+# --- DESIGN FINAL HARMONISÉ : TITRE ET ACCUEIL IDENTIQUES ---
 st.markdown("""
     <style>
     /* 1. LE FOND GLOBAL */
@@ -23,25 +24,30 @@ st.markdown("""
         background-attachment: fixed;
     }
 
-    /* 2. LE TITRE OR */
+    /* 2. LE TITRE PRINCIPAL (H1) */
     h1 {
         color: #D4AF37 !important;
         text-align: center;
         text-transform: uppercase;
         font-weight: bold;
+        letter-spacing: 3px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
 
-    /* 3. LE MESSAGE D'ACCUEIL (Bonjour Thierry...) en OR LUMINEUX */
-    /* On cible les titres h2 qui servent souvent à l'affichage du nom */
+    /* 3. LE MESSAGE D'ACCUEIL (H2) - IDENTIQUE AU TITRE H1 */
     h2 {
-        color: #FBF5B7 !important; /* Or très clair/lumineux */
+        color: #D4AF37 !important; /* Même Or que le titre */
         text-align: center;
-        font-style: italic;
-        text-shadow: 0px 0px 10px rgba(212, 175, 55, 0.5);
-        margin-top: 20px !important;
+        text-transform: uppercase; /* En majuscules comme le titre */
+        font-weight: bold !important;
+        letter-spacing: 3px; /* Même espacement */
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        margin-top: 30px !important;
+        margin-bottom: 20px !important;
+        font-size: 1.8rem !important; /* Un peu plus petit que le H1 mais même style */
     }
 
-    /* 4. FORCE LE FOND BLANC OPAQUE SUR LE TABLEAU (EXPANDER) */
+    /* 4. FORCE LE FOND BLANC SUR LE TABLEAU (EXPANDER) */
     div[data-testid="stExpander"] {
         background-color: #ffffff !important;
         border: 2px solid #D4AF37 !important;
@@ -63,14 +69,13 @@ st.markdown("""
     .stAlert {
         background-color: rgba(255, 255, 255, 0.1) !important;
         border: 1px solid #D4AF37 !important;
-        border-radius: 10px !important;
     }
     .stAlert p {
         color: #ffffff !important;
         font-size: 1.1rem !important;
     }
 
-    /* 7. STYLE DES TITRES DE RUBRIQUES (PRO, COEUR...) */
+    /* 7. STYLE DES TITRES DE RUBRIQUES DANS LE TABLEAU */
     h4 {
         color: #1a1c4b !important;
         border-bottom: 2px solid #D4AF37 !important;
@@ -78,7 +83,7 @@ st.markdown("""
         font-weight: bold !important;
     }
 
-    /* 8. LABELS DU FORMULAIRE ET BOUTON */
+    /* 8. LABELS ET BOUTON */
     label {
         color: #D4AF37 !important;
         font-weight: bold !important;
