@@ -10,75 +10,66 @@ st.set_page_config(page_title="Numérologie Pro", page_icon="✨", layout="cente
 # --- DESIGN BLEU ROYAL & OR ÉTINCELANT ---
 # --- DESIGN SAPHIR, AMÉTHYSTE & OR ---
 # --- DESIGN NUIT ÉTOILÉE : LISIBILITÉ MAXIMALE ---
+# --- DESIGN FINAL : LISIBILITÉ TOTALE & CADRE OR ---
 st.markdown("""
     <style>
-    /* Fond : Bleu Nuit avec reflet Violet subtil (Épuré) */
+    /* 1. FOND DE L'APPLI (Bleu Nuit & Violet Royal) */
     .stApp {
-        background: linear-gradient(135deg, #0a0e27 0%, #1c1544 100%);
+        background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%) !important;
         background-attachment: fixed;
     }
     
-    /* Titre : Or étincelant sur fond sombre */
+    /* 2. LE TITRE (Or Lumineux) */
     h1 {
         color: #D4AF37 !important;
         text-align: center;
-        font-family: 'Garamond', serif;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        padding-top: 40px;
-        font-size: 2.2rem !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        padding-bottom: 20px;
     }
 
-    /* LES CARTES : BLANC PUR (Essentiel pour lire le texte) */
-    .st-emotion-cache-p6495m { 
-        background-color: #ffffff !important; /* Fond blanc pour les textes */
-        border: 2px solid #D4AF37 !important; /* Cadre Or */
-        border-radius: 12px !important;
-        box-shadow: 0px 4px 20px rgba(0,0,0,0.6) !important;
-        margin-bottom: 25px !important;
-    }
-    
-    /* LE TEXTE : NOIR INTENSE (Lisibilité 100%) */
-    .stMarkdown p {
-        color: #1a1c2c !important; /* Texte sombre sur fond blanc */
-        line-height: 1.8;
-        font-size: 1.15rem;
-        font-weight: 500;
-        padding: 5px 15px;
+    /* 3. FORCER LE BLANC DANS LES TABLEAUX (EXPANDERS) */
+    /* On cible l'en-tête et le contenu pour qu'ils soient BLANCS */
+    .st-emotion-cache-p6495m, .st-emotion-cache-1h9up60, .st-emotion-cache-eqo6hf {
+        background-color: #ffffff !important;
+        color: #1a1c2c !important;
+        border: 2px solid #D4AF37 !important;
+        border-radius: 10px !important;
     }
 
-    /* Titres de rubriques (Pro, Coeur...) : Violet Royal */
+    /* 4. LE TEXTE (Noir Profond pour lecture parfaite) */
+    /* On force TOUT le texte à l'intérieur des expanders en Noir */
+    .st-emotion-cache-p6495m p, .st-emotion-cache-p6495m span, .st-emotion-cache-p6495m li {
+        color: #000000 !important;
+        font-weight: 500 !important;
+        line-height: 1.6 !important;
+    }
+
+    /* Fixer le texte dans les expanders ouverts */
+    [data-styled-component="StyledExpanderContent"] p {
+        color: #000000 !important;
+    }
+
+    /* 5. TITRES DES RUBRIQUES (Violet Foncé sur Blanc) */
     h4 {
-        color: #302b63 !important;
-        border-bottom: 1.5px solid #D4AF37;
-        margin-top: 20px !important;
-        text-transform: uppercase;
-        font-size: 0.9rem !important;
+        color: #1a2a6c !important;
+        border-bottom: 2px solid #D4AF37 !important;
+        margin-top: 15px !important;
         font-weight: 800 !important;
     }
 
-    /* Bouton : Or et Blanc */
-    .stButton>button {
-        background-color: #D4AF37 !important;
-        color: #0a0e27 !important;
-        font-weight: bold !important;
-        border-radius: 8px !important;
-        height: 3.5em !important;
-        border: 2px solid #ffffff !important;
-    }
-
-    /* Labels du formulaire (Prénom, Nom...) en Or */
+    /* 6. LABELS DU FORMULAIRE (En Or pour fond sombre) */
     label {
         color: #D4AF37 !important;
-        font-size: 1.1rem !important;
         font-weight: bold !important;
     }
 
-    /* Champs de saisie : Fond blanc pour bien voir ce qu'on tape */
-    .stTextInput input, .stDateInput input {
-        background-color: #ffffff !important;
-        color: #0a0e27 !important;
-        border: 1px solid #D4AF37 !important;
+    /* 7. LE BOUTON (Or) */
+    .stButton>button {
+        background: linear-gradient(90deg, #D4AF37, #FBF5B7) !important;
+        color: #1a1c2c !important;
+        font-weight: bold !important;
+        border-radius: 5px !important;
+        width: 100% !important;
     }
     </style>
     """, unsafe_allow_html=True)
