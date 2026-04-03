@@ -11,65 +11,72 @@ st.set_page_config(page_title="Numérologie Pro", page_icon="✨", layout="cente
 # --- DESIGN SAPHIR, AMÉTHYSTE & OR ---
 # --- DESIGN NUIT ÉTOILÉE : LISIBILITÉ MAXIMALE ---
 # --- DESIGN FINAL : LISIBILITÉ TOTALE & CADRE OR ---
+# --- DESIGN FINAL : CONTRASTE ABSOLU ---
 st.markdown("""
     <style>
-    /* 1. FOND DE L'APPLI (Bleu Nuit & Violet Royal) */
+    /* 1. LE FOND GLOBAL (Bleu Nuit / Violet subtil) */
     .stApp {
-        background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%) !important;
+        background: linear-gradient(135deg, #051937 0%, #1a1c4b 100%) !important;
         background-attachment: fixed;
     }
-    
-    /* 2. LE TITRE (Or Lumineux) */
+
+    /* 2. LE TITRE (Or) */
     h1 {
         color: #D4AF37 !important;
         text-align: center;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        padding-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
     }
 
-    /* 3. FORCER LE BLANC DANS LES TABLEAUX (EXPANDERS) */
-    /* On cible l'en-tête et le contenu pour qu'ils soient BLANCS */
-    .st-emotion-cache-p6495m, .st-emotion-cache-1h9up60, .st-emotion-cache-eqo6hf {
-        background-color: #ffffff !important;
-        color: #1a1c2c !important;
-        border: 2px solid #D4AF37 !important;
-        border-radius: 10px !important;
+    /* 3. LES TABLEAUX (EXPANDERS) : ON FORCE LE BLANC PUR */
+    /* On cible TOUT l'élément expander */
+    .st-emotion-cache-p6495m, .st-emotion-cache-p6495m div, .st-emotion-cache-p6495m p {
+        background-color: #ffffff !important; /* Fond Blanc */
+        color: #000000 !important;           /* Texte Noir Pur */
     }
 
-    /* 4. LE TEXTE (Noir Profond pour lecture parfaite) */
-    /* On force TOUT le texte à l'intérieur des expanders en Noir */
-    .st-emotion-cache-p6495m p, .st-emotion-cache-p6495m span, .st-emotion-cache-p6495m li {
+    /* Force la couleur noire sur TOUS les textes dans les expanders */
+    .stExpander div, .stExpander p, .stExpander span, .stExpander li {
         color: #000000 !important;
         font-weight: 500 !important;
-        line-height: 1.6 !important;
     }
 
-    /* Fixer le texte dans les expanders ouverts */
-    [data-styled-component="StyledExpanderContent"] p {
-        color: #000000 !important;
+    /* Style de l'en-tête de l'expander (Mois + Vibration) */
+    .st-emotion-cache-p6495m {
+        border: 2px solid #D4AF37 !important;
+        border-radius: 10px !important;
+        margin-bottom: 10px !important;
     }
 
-    /* 5. TITRES DES RUBRIQUES (Violet Foncé sur Blanc) */
+    /* 4. LES TITRES INTERNES (Pro, Coeur, etc.) */
     h4 {
-        color: #1a2a6c !important;
+        color: #1a1c4b !important; /* Bleu très foncé pour bien lire */
         border-bottom: 2px solid #D4AF37 !important;
         margin-top: 15px !important;
-        font-weight: 800 !important;
+        font-weight: bold !important;
     }
 
-    /* 6. LABELS DU FORMULAIRE (En Or pour fond sombre) */
+    /* 5. LES LABELS DU FORMULAIRE (Prénom, Nom en Or) */
     label {
         color: #D4AF37 !important;
         font-weight: bold !important;
     }
 
-    /* 7. LE BOUTON (Or) */
+    /* 6. LE BOUTON (Or Royal) */
     .stButton>button {
         background: linear-gradient(90deg, #D4AF37, #FBF5B7) !important;
-        color: #1a1c2c !important;
+        color: #051937 !important;
         font-weight: bold !important;
         border-radius: 5px !important;
+        border: none !important;
         width: 100% !important;
+        height: 3em !important;
+    }
+
+    /* 7. CHAMPS DE SAISIE */
+    input {
+        background-color: #ffffff !important;
+        color: #000000 !important;
     }
     </style>
     """, unsafe_allow_html=True)
