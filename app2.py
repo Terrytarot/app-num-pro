@@ -126,8 +126,25 @@ DATA_VIBRATIONS = {
             "argent": "La gestion de l'argent demande ce mois-ci une grande retenue et une analyse froide des opportunités. Observez les marchés, étudiez les chiffres, mais ne vous hâtez point de conclure des transactions sous l'influence de l'émotion ou de la pression extérieure. Un secret financier ou une information confidentielle pourrait être révélée à votre avantage si vous restez attentif et discret. La richesse vient ici de l'esprit et de la prudence. Évitez les dépenses impulsives ou de prestige.",
             "bienetre": "Le repos de l'esprit et la protection de votre système nerveux sont vos priorités absolues sous cette vibration de sagesse. Méditez, lisez, et n'hésitez point à vous retirer du tumulte social dès que vous en ressentez le besoin impérieux. Votre mental est sollicité par vos réflexions intenses ; accordez-lui le calme et le sommeil profond qu'il réclame pour se régénérer. La proximité de la nature sauvage, des forêts ou des lieux de recueillement sera votre meilleure source de vitalité."
         }
+    ],
+    8: [
+        {
+            "pro": "L'heure est à la récolte de vos efforts passés et à l'affirmation de votre autorité naturelle. La vibration 8 vous propulse dans une phase de réalisation concrète où votre sens des affaires et votre capacité à diriger sont vos meilleurs atouts. C'est le moment de viser haut, de négocier avec audace et de prendre la place qui vous revient de droit dans la hiérarchie professionnelle. Votre détermination est votre plus grande force.",
+            "coeur": "Une passion intense et une exigence de vérité marquent vos relations ce mois-ci. Vous ne vous contentez plus de l'à-peu-près ou des faux-semblants. En couple, c'est le moment de construire des projets d'envergure, comme un investissement commun ; pour les cœurs libres, votre magnétisme est puissant et lié à votre réussite personnelle. L'amour se vit ici avec une force et une loyauté sans faille.",
+            "argent": "Les flux financiers sont particulièrement puissants sous cette vibration de pouvoir. Elle favorise les gains importants, les retours sur investissement et la signature de contrats lucratifs. Cependant, elle demande une gestion rigoureuse et une vision à long terme. C'est le mois idéal pour régler les questions administratives ou juridiques en votre faveur. L'argent est ici le reflet de votre efficacité.",
+            "bienetre": "Votre énergie est combative et votre résistance physique est à son maximum. Pour garder l'équilibre face à cette intensité, pratiquez des activités qui demandent de la maîtrise de soi, comme les arts martiaux ou le pilates. Attention toutefois à ne pas accumuler trop de tension dans le haut du corps ; apprenez à relâcher la pression pour préserver votre clarté mentale et votre sommeil."
+        }
+    ],
+    9: [
+        {
+            "pro": "Vous arrivez au terme d'un cycle majeur, une période de bilan et d'épuration nécessaire avant le renouveau. Cette vibration vous invite à finaliser vos dossiers en cours plutôt qu'à lancer de nouvelles initiatives. Votre intuition est décuplée, vous permettant de percevoir les enjeux globaux de votre carrière avec un recul salvateur. Une ouverture vers l'enseignement, l'international ou des projets à vocation humaine est fortement favorisée ce mois-ci.",
+            "coeur": "La vibration 9 apporte une grande compassion et une sensibilité exacerbée dans votre sphère affective. Vous aspirez à un idéal amoureux élevé et à une connexion d'âme profonde. C'est un temps de pardon, de compréhension mutuelle et parfois de détachement nécessaire pour laisser partir ce qui ne vous sert plus. Votre cœur s'ouvre à une dimension plus vaste, privilégiant la qualité émotionnelle et l'authenticité.",
+            "argent": "La prudence et la fluidité sont vos guides financiers ce mois-ci. Ce n'est pas une période d'accumulation agressive, mais plutôt de circulation sage des ressources. Terminez vos remboursements, clôturez les vieux comptes et soyez généreux si vous le pouvez. L'argent doit être vu comme une énergie qui circule ; ce que vous libérez aujourd'hui avec sagesse créera l'espace nécessaire pour l'abondance du prochain cycle.",
+            "bienetre": "Un grand besoin d'évasion et de ressourcement spirituel se fait sentir. Votre esprit a besoin de calme pour intégrer les leçons du cycle qui s'achève. La méditation, les séjours en bord de mer ou la lecture inspirante sont vos meilleurs alliés. Écoutez la fatigue émotionnelle qui peut survenir et accordez-vous de vrais moments de solitude choisie. Votre régénération passe par le silence et l'introspection."
+        }
     ]
 }
+
 } # <-- CETTE ACCOLADE FERME LE DICTIONNAIRE
 
 # --- 4. INTERFACE ---
