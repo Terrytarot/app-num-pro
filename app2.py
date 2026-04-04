@@ -99,7 +99,14 @@ DATA_VIBRATIONS = {
         {"pro": "Votre rôle de stabilisateur...", "coeur": "L'harmonie familiale...", "argent": "La gestion de votre budget...", "bienetre": "Votre santé est..."}],
     7: [{"pro": "Le temps semble s'arrêter...", "coeur": "Une certaine distance...", "argent": "La gestion de l'argent...", "bienetre": "Le repos de l'esprit..."},
         {"pro": "Votre expertise est sollicitée...", "coeur": "La qualité de la relation...", "argent": "Le savoir est votre pouvoir...", "bienetre": "La pratique du jardinage..."}]
-}
+8: [
+        {"pro": "L'heure est à la récolte...", "coeur": "Une passion intense...", "argent": "Les flux financiers...", "bienetre": "Votre énergie est combative..."},
+        {"pro": "La maîtrise de votre destin...", "coeur": "Un engagement puissant...", "argent": "Réussite et expansion...", "bienetre": "Équilibre et force interne..."}
+    ],
+    9: [
+        {"pro": "Vous arrivez au terme d'un cycle...", "coeur": "Une grande compassion...", "argent": "La prudence est de mise...", "bienetre": "Besoin de grand air..."},
+        {"pro": "L'ouverture vers de nouveaux horizons...", "coeur": "L'amour universel...", "argent": "Détachement et fluidité...", "bienetre": "Régénération spirituelle..."}
+    ]}
 
 # --- 4. INTERFACE ---
 st.title("🔮 NUMÉROLOGIE PRESTIGE")
