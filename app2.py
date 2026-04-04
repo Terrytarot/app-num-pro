@@ -1,41 +1,36 @@
 import streamlit as st
 from datetime import datetime
 
-# --- 1. CONFIGURATION & CAMOUFLAGE TOTAL ---
+# --- 1. CONFIGURATION & CAMOUFLAGE ---
 st.set_page_config(page_title="Numérologie Pro", page_icon="✨", layout="centered")
 
 st.markdown("""
     <style>
-    /* SUPPRESSION RADICALE DES ÉLÉMENTS STREAMLIT */
+    /* MASQUAGE TOTAL STREAMLIT */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
     .stAppDeployButton {display:none !important;}
+    [data-testid="stDecoration"] {display:none !important;}
     [data-testid="stStatusWidget"] {display:none !important;}
     
-    /* Masquage du badge et des décorations Streamlit */
-    div[data-testid="stDecoration"] {display:none !important;}
-    div[data-testid="stStatusWidget"] {display:none !important;}
-    .viewerBadge_container__1QSob {display:none !important;}
-    .viewerBadge_link__1S137 {display:none !important;}
-    
-    /* 1. LE FOND GLOBAL */
+    /* Cache le lien Streamlit en bas à droite */
+    div[class*="viewerBadge_container"] {display:none !important;}
+    div[class*="styles_viewerBadge"] {display:none !important;}
+    a[href*="streamlit.io"] {display:none !important;}
+
+    /* DESIGN BLEU NUIT & OR */
     .stApp {
         background: linear-gradient(135deg, #051937 0%, #1a1c4b 100%) !important;
         background-attachment: fixed;
     }
-
-    /* 2. LE TITRE PRINCIPAL */
     h1, h2 {
         color: #D4AF37 !important;
         text-align: center;
         text-transform: uppercase;
         font-weight: bold;
-        letter-spacing: 3px;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
-
-    /* 3. LABELS ET BOUTON */
     label { color: #D4AF37 !important; font-weight: bold !important; }
     .stButton>button {
         background: linear-gradient(90deg, #D4AF37, #FBF5B7) !important;
@@ -44,16 +39,6 @@ st.markdown("""
         width: 100% !important;
         border-radius: 10px !important;
         height: 3.5em !important;
-    }
-    
-    /* 4. TABLEAUX ET TEXTES */
-    div[data-testid="stExpander"] {
-        background-color: #ffffff !important;
-        border: 2px solid #D4AF37 !important;
-        border-radius: 10px !important;
-    }
-    div[data-testid="stExpander"] p, div[data-testid="stExpander"] h4 {
-        color: #000000 !important;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -69,8 +54,8 @@ if not st.session_state.auth:
         email = st.text_input("Email professionnel")
         code = st.text_input("Code d'accès", type="password")
         if st.button("SE CONNECTER"):
-            # !!! REMPLACE PAR TES INFOS ICI !!!
-            if email == "tfb13@wanadoo.fr" and code == "Barfle041390":
+            # REMPLACE PAR TES VRAIS ACCÈS ICI
+            if email == "ton_email" and code == "ton_code":
                 st.session_state.auth = True
                 st.rerun()
             else:
