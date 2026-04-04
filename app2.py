@@ -55,7 +55,7 @@ if not st.session_state.auth:
         code = st.text_input("Code d'accès", type="password")
         if st.button("SE CONNECTER"):
             # REMPLACE PAR TES VRAIS ACCÈS ICI
-            if email == "ton_email" and code == "ton_code":
+            if email == "tfb13@wanadoo.fr" and code == "Barfle041390":
                 st.session_state.auth = True
                 st.rerun()
             else:
