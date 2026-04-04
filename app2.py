@@ -133,60 +133,74 @@ DATA_VIBRATIONS = {
     }
 }
 
-# --- 5. LOGIQUE DE GÉNÉRATION (RECTIFIÉE) ---
+# --- 5. LOGIQUE DE GÉNÉRATION (VERSION COMPACTE & COMPLÈTE) ---
 st.title("🔮 VOTRE THÈME ANNUEL PRESTIGE")
+
 with st.form("form_global"):
-    col1, col2 = st.columns(2)
-    nom = col1.text_input("Nom")
-    prenom = col2.text_input("Prénom")
+    # Première ligne : Nom et Prénom
+    col_nom, col_prenom = st.columns(2)
+    nom = col_nom.text_input("Nom")
+    prenom = col_prenom.text_input("Prénom")
     
-    # Correction de l'intervalle de dates : de 1920 à aujourd'hui
-    date_naiss = st.date_input(
-        "Date de Naissance", 
-        min_value=datetime(1920, 1, 1), 
-        max_value=datetime.now(),
-        format="DD/MM/YYYY"
-    )
+    # Deuxième ligne : Date de Naissance ultra-compacte
+    st.write("📅 **DATE DE NAISSANCE**")
+    c1, c2, c3 = st.columns([1, 1, 1.5]) 
+    
+    jour = c1.selectbox("Jour", list(range(1, 32)))
+    mois = c2.selectbox("Mois", list(range(1, 13)))
+    annee = c3.selectbox("Année", list(range(2026, 1919, -1))) 
     
     submit = st.form_submit_button("GÉNÉRER L'ANALYSE DÉTAILLÉE SUR 12 MOIS")
 
 if submit:
     if nom and prenom:
-        v_annee = reduire(date_naiss.day + date_naiss.month + reduire(2026))
-        
-        maintenant = datetime.now()
-        m_start = maintenant.month + 1
-        y_start = maintenant.year
-        if m_start > 12: 
-            m_start = 1
-            y_start += 1
-
-        st.header(f"✨ ANALYSE DE {prenom.upper()} {nom.upper()}")
-        st.subheader(f"Année Personnelle 2026 : Vibration {v_annee}")
-        st.divider()
-
-        occurrences = {}
-
-        for i in range(12):
-            curr_m = (m_start + i - 1) % 12 + 1
-            curr_y = y_start + (m_start + i - 1) // 12
-            v_mois = reduire(v_annee + curr_m)
+        try:
+            # Reconstruction de la date de naissance
+            date_naiss = datetime(annee, mois, jour)
             
-            count = occurrences.get(v_mois, 0)
-            variant_key = "A" if count == 0 else "B" if count == 1 else "C"
-            occurrences[v_mois] = count + 1
+            # Calcul Année Personnelle pour 2026
+            v_annee = reduire(date_naiss.day + date_naiss.month + reduire(2026))
             
-            data = DATA_VIBRATIONS.get(v_mois, DATA_VIBRATIONS[1])
-            txt = data.get(variant_key, data["A"])
+            # Mois de départ = Mois Actuel + 1 (Début Mai 2026)
+            maintenant = datetime.now()
+            m_start = maintenant.month + 1
+            y_start = maintenant.year
+            if m_start > 12: 
+                m_start = 1
+                y_start += 1
 
-            with st.expander(f"📅 {obtenir_nom_mois(curr_m, curr_y).upper()} — VIBRATION {v_mois}", expanded=(i==0)):
-                st.markdown(f"#### 💼 Vie Professionnelle")
-                st.write(txt['pro'])
-                st.markdown(f"#### ❤️ Vie Affective")
-                st.write(txt['coeur'])
-                st.markdown(f"#### 💰 Finances & Abondance")
-                st.write(txt['argent'])
-                st.markdown(f"#### 🌿 Énergie & Bien-être")
-                st.write(txt['bienetre'])
+            st.header(f"✨ ANALYSE DE {prenom.upper()} {nom.upper()}")
+            st.subheader(f"Année Personnelle 2026 : Vibration {v_annee}")
+            st.divider()
+
+            occurrences = {}
+
+            # Boucle des 12 mois
+            for i in range(12):
+                curr_m = (m_start + i - 1) % 12 + 1
+                curr_y = y_start + (m_start + i - 1) // 12
+                v_mois = reduire(v_annee + curr_m)
+                
+                # Gestion Anti-Redondance (A, B, C)
+                count = occurrences.get(v_mois, 0)
+                variant_key = "A" if count == 0 else "B" if count == 1 else "C"
+                occurrences[v_mois] = count + 1
+                
+                # Récupération des textes longs
+                data = DATA_VIBRATIONS.get(v_mois, DATA_VIBRATIONS[1])
+                txt = data.get(variant_key, data["A"])
+
+                with st.expander(f"📅 {obtenir_nom_mois(curr_m, curr_y).upper()} — VIBRATION {v_mois}", expanded=(i==0)):
+                    st.markdown(f"#### 💼 Vie Professionnelle")
+                    st.write(txt['pro'])
+                    st.markdown(f"#### ❤️ Vie Affective")
+                    st.write(txt['coeur'])
+                    st.markdown(f"#### 💰 Finances & Abondance")
+                    st.write(txt['argent'])
+                    st.markdown(f"#### 🌿 Énergie & Bien-être")
+                    st.write(txt['bienetre'])
+                    
+        except ValueError:
+            st.error("Date invalide (ex: 31 février). Veuillez corriger.")
     else:
-        st.error("Veuillez remplir les informations.")
+        st.error("Veuillez remplir votre nom et votre prénom.")
