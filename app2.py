@@ -98,13 +98,45 @@ DATA_VIBRATIONS = {
 
 # --- 4. INTERFACE ---
 st.title("🔮 NUMÉROLOGIE PRESTIGE")
-col_a, col_b = st.columns(2)
-with col_a:
-    nom = st.text_input("Nom du client")
-with col_b:
-    prenom = st.text_input("Prénom du client")
-date_naiss = st.date_input("Date de naissance", min_value=datetime(1940, 1, 1))
 
-if st.button("GÉNÉRER LE THÈME"):
-    st.write(f"### Thème pour {prenom} {nom}")
-    # Ton code de calcul ici...
+# Utilisation d'un formulaire pour une validation stable
+with st.form("mon_formulaire_prestige"):
+    col_a, col_b = st.columns(2)
+    with col_a:
+        nom = st.text_input("Nom du client")
+    with col_b:
+        prenom = st.text_input("Prénom du client")
+    
+    date_naiss = st.date_input("Date de naissance", min_value=datetime(1940, 1, 1))
+    
+    # Le bouton de validation
+    bouton_valider = st.form_submit_button("GÉNÉRER LE THÈME")
+
+if bouton_valider:
+    if nom and prenom:
+        # 1. Calcul de la vibration (Ex: 14/05 -> 1+4+0+5 = 10 -> 1)
+        chiffre_brut = date_naiss.day + date_naiss.month
+        chiffre = reduire(chiffre_brut)
+        
+        st.success(f"Analyse vibratoire terminée pour {prenom} {nom}")
+        
+        # 2. Affichage des résultats dans l'Expander (Tableau Blanc)
+        with st.expander(f"✨ VOTRE SYNTHÈSE : VIBRATION {chiffre}", expanded=True):
+            # Rubrique PRO
+            st.markdown("#### 💼 Vie Professionnelle")
+            st.write(DATA_VIBRATIONS[chiffre][0]["pro"])
+            
+            # Rubrique COEUR
+            st.markdown("#### ❤️ Vie Affective")
+            st.write(DATA_VIBRATIONS[chiffre][0]["coeur"])
+            
+            # Rubrique ARGENT
+            st.markdown("#### 💰 Finances & Abondance")
+            st.write(DATA_VIBRATIONS[chiffre][0]["argent"])
+            
+            # Rubrique BIEN-ÊTRE
+            st.markdown("#### 🌿 Énergie & Bien-être")
+            st.write(DATA_VIBRATIONS[chiffre][0]["bienetre"])
+            
+    else:
+        st.warning("⚠️ Veuillez saisir le nom et le prénom pour générer l'analyse.")
