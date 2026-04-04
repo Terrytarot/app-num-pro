@@ -110,7 +110,9 @@ DATA_VIBRATIONS = {
     }
 }
 
-# --- 6. INTERFACE ET GÉNÉRATION (AFFICHAGE SUR MESURE) ---
+# =========================================================
+# --- 6. INTERFACE ET GÉNÉRATION (LE MOTEUR À COLLER) ---
+# =========================================================
 st.title("🔮 VOTRE THÈME ANNUEL PRESTIGE")
 
 with st.form("form_global"):
@@ -139,29 +141,30 @@ if submit:
             st.divider()
             st.header(f"✨ ANALYSE DE {prenom.upper()} {nom.upper()}")
 
-            # --- LE BANDEAU SUR MESURE (HTML) ---
-            # Crée un fond gris clair (#f0f2f6) et une police noire (#000000)
-            texte_personnalite = PROFIL_NOM[v_expression]
-            
+            # --- 1. PROFIL D'EXPRESSION (GRIS CLAIR / TEXTE NOIR NET) ---
             st.markdown(f"""
-                <div style="
-                    background-color: #f0f2f6; 
-                    padding: 20px; 
-                    border-radius: 10px; 
-                    border: 1px solid #dcdcdc; 
-                    margin-bottom: 20px;
-                ">
-                    <h3 style="color: #000000; margin-top: 0; text-align: left;">🧬 PROFIL D'EXPRESSION : NOMBRE {v_expression}</h3>
-                    <p style="color: #000000; font-size: 1.1em; font-style: italic; margin-bottom: 0;">"{texte_personnalite}"</p>
+                <div style="background-color: #f0f2f6; padding: 25px; border-radius: 10px; border: 2px solid #dcdcdc; margin-bottom: 20px; text-align: center;">
+                    <h3 style="color: #000000 !important; margin-bottom: 10px; text-shadow: none !important; text-transform: uppercase; font-weight: bold;">
+                         PROFIL D'EXPRESSION : NOMBRE {v_expression}
+                    </h3>
+                    <p style="color: #000000 !important; font-size: 1.1em; font-style: italic; line-height: 1.5; text-shadow: none !important; margin: 0;">
+                        "{PROFIL_NOM[v_expression]}"
+                    </p>
                 </div>
             """, unsafe_allow_html=True)
-            # -------------------------------------
+
+            # --- 2. ANNÉE PERSONNELLE (FOND BLANC / TEXTE NOIR NET) ---
+            st.markdown(f"""
+                <div style="background-color: #ffffff; padding: 15px; border-radius: 8px; border-left: 10px solid #D4AF37; margin-bottom: 30px;">
+                    <p style="color: #000000 !important; font-size: 1.2em; margin: 0; text-align: center; font-weight: bold; text-shadow: none !important;">
+                        📅 VOTRE ANNÉE PERSONNELLE 2026 : VIBRATION {v_annee}
+                    </p>
+                </div>
+            """, unsafe_allow_html=True)
             
             st.divider()
-            # Affichage de l'année personnelle (en bleu pour la distinction)
-            st.info(f"📅 Votre Année Personnelle 2026 est la **Vibration {v_annee}**")
 
-            # BOUCLE 12 MOIS
+            # --- 3. BOUCLE 12 MOIS (UTILISE VOS TEXTES LONGS PRÉSENTS AU DÉBUT DU FICHIER) ---
             m_start, y_start = 5, 2026
             occurrences = {}
 
@@ -174,7 +177,7 @@ if submit:
                 variant_key = "A" if count == 0 else "B" if count == 1 else "C"
                 occurrences[v_mois] = count + 1
                 
-                # Récupération sécurisée du texte (A, B ou C)
+                # Cherche dans votre dictionnaire DATA_VIBRATIONS original
                 data = DATA_VIBRATIONS.get(v_mois, DATA_VIBRATIONS[1])
                 txt = data.get(variant_key, data["A"])
 
@@ -188,7 +191,7 @@ if submit:
                     st.markdown(f"#### 🌿 Énergie & Bien-être")
                     st.write(txt['bienetre'])
                     
-        except ValueError:
-            st.error("Date invalide.")
+        except Exception as e:
+            st.error(f"Une erreur est survenue : {e}")
     else:
         st.error("Veuillez remplir votre nom et votre prénom.")
