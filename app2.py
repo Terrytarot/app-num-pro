@@ -15,14 +15,23 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# --- 2. AUTHENTIFICATION (VERSION NOIR NET) ---
+# --- 2. AUTHENTIFICATION (FORÇAGE NOIR NET) ---
 if 'auth' not in st.session_state: st.session_state.auth = False
 if not st.session_state.auth:
-    # On force le titre en noir avec du HTML pour éviter le flou doré
+    # Ce bloc CSS local force le titre h1 en noir et enlève l'ombre portée
     st.markdown("""
-        <h1 style="color: #000000 !important; text-shadow: none !important; text-align: center; margin-bottom: 30px;">
-            ACCÈS RÉSERVÉ
-        </h1>
+        <style>
+            .auth-title {
+                color: #000000 !important;
+                text-shadow: none !important;
+                font-weight: bold !important;
+                text-align: center !important;
+                font-size: 3rem !important;
+                margin-bottom: 30px !important;
+                display: block !important;
+            }
+        </style>
+        <h1 class="auth-title">ACCÈS RÉSERVÉ</h1>
     """, unsafe_allow_html=True)
     
     col1, col2, col3 = st.columns([1, 2, 1])
@@ -35,7 +44,6 @@ if not st.session_state.auth:
                 st.rerun()
             else: st.error("Identifiants incorrects")
     st.stop()
-
 # --- 3. FONCTIONS DE CALCUL (AJOUT DU MODULE LETTRES) ---
 def reduire(n):
     while n > 9: n = sum(int(digit) for digit in str(n))
