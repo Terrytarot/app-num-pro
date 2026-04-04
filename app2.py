@@ -133,13 +133,21 @@ DATA_VIBRATIONS = {
     }
 }
 
-# --- 5. LOGIQUE DE GÉNÉRATION ---
+# --- 5. LOGIQUE DE GÉNÉRATION (RECTIFIÉE) ---
 st.title("🔮 VOTRE THÈME ANNUEL PRESTIGE")
 with st.form("form_global"):
     col1, col2 = st.columns(2)
     nom = col1.text_input("Nom")
     prenom = col2.text_input("Prénom")
-    date_naiss = st.date_input("Date de Naissance", format="DD/MM/YYYY")
+    
+    # Correction de l'intervalle de dates : de 1920 à aujourd'hui
+    date_naiss = st.date_input(
+        "Date de Naissance", 
+        min_value=datetime(1920, 1, 1), 
+        max_value=datetime.now(),
+        format="DD/MM/YYYY"
+    )
+    
     submit = st.form_submit_button("GÉNÉRER L'ANALYSE DÉTAILLÉE SUR 12 MOIS")
 
 if submit:
