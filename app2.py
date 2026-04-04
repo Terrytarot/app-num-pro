@@ -39,7 +39,25 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# --- 2. FONCTIONS DE CALCUL ---
+# --- 2. AUTHENTIFICATION ---
+if 'auth' not in st.session_state:
+    st.session_state.auth = False
+
+if not st.session_state.auth:
+    st.title("ACCÈS RÉSERVÉ")
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        email_input = st.text_input("Email professionnel")
+        code_input = st.text_input("Code d'accès", type="password")
+        if st.button("SE CONNECTER"):
+            if email_input == "tfb13@wanadoo.fr" and code_input == "Barfle041390":
+                st.session_state.auth = True
+                st.rerun()
+            else:
+                st.error("Identifiants incorrects")
+    st.stop()
+
+# --- 3. FONCTIONS DE CALCUL ---
 def reduire(n):
     while n > 9:
         n = sum(int(digit) for digit in str(n))
@@ -50,7 +68,7 @@ def obtenir_nom_mois(numero_mois):
             "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
     return noms[numero_mois - 1]
 
-# --- 3. BASE DE DONNÉES COMPLÈTE (TEXTES LONGS) ---
+# --- 4. BASE DE DONNÉES COMPLÈTE ---
 DATA_VIBRATIONS = {
     1: {
         "pro": "L'aube d'un cycle nouveau se lève sur votre Œuvre, marquant le début d'une ère où votre volonté individuelle devient le moteur principal de votre réussite. Cette vibration de primauté vous exhorte à l'initiative pure et à la sortie de votre zone de confort habituelle. Ne soyez point dans l'attente d'une validation extérieure, car l'univers favorise en ce moment les pionniers et ceux qui osent briser les codes établis. C'est le temps de l'affirmation, de l'indépendance et du commandement naturel. Forgez vos projets avec la force de celui qui trace son propre sillage dans une terre encore vierge d'idées.",
@@ -108,7 +126,7 @@ DATA_VIBRATIONS = {
     }
 }
 
-# --- 4. INTERFACE UTILISATEUR ---
+# --- 5. INTERFACE UTILISATEUR ---
 st.title("🔮 VOTRE THÈME ANNUEL PRESTIGE")
 
 with st.form("form_global"):
@@ -116,14 +134,13 @@ with st.form("form_global"):
     nom = col1.text_input("Nom")
     prenom = col2.text_input("Prénom")
     
-    # FORMAT FRANCAIS ICI (DD/MM/YYYY)
+    # FORMAT FRANCAIS (JJ/MM/AAAA)
     date_naiss = st.date_input("Date de Naissance", min_value=datetime(1940,1,1), format="DD/MM/YYYY")
     
     submit = st.form_submit_button("GÉNÉRER L'ANALYSE SUR 12 MOIS")
 
 if submit:
     if nom and prenom:
-        # 1. Calcul Année Personnelle (ex: pour 2026)
         annee_en_cours = 2026
         vibr_annee = reduire(date_naiss.day + date_naiss.month + reduire(annee_en_cours))
         
@@ -131,9 +148,7 @@ if submit:
         st.subheader(f"Votre Année Personnelle est la Vibration {vibr_annee}")
         st.divider()
 
-        # 2. Boucle pour générer les 12 mois
         for m in range(1, 13):
-            # Formule : Année Personnelle + Mois Civil
             chiffre_mois = reduire(vibr_annee + m)
             textes = DATA_VIBRATIONS[chiffre_mois]
             
