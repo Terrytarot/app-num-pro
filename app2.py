@@ -15,10 +15,16 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# --- 2. AUTHENTIFICATION (INCHANGÉ) ---
+# --- 2. AUTHENTIFICATION (VERSION NOIR NET) ---
 if 'auth' not in st.session_state: st.session_state.auth = False
 if not st.session_state.auth:
-    st.title("ACCÈS RÉSERVÉ")
+    # On force le titre en noir avec du HTML pour éviter le flou doré
+    st.markdown("""
+        <h1 style="color: #000000 !important; text-shadow: none !important; text-align: center; margin-bottom: 30px;">
+            ACCÈS RÉSERVÉ
+        </h1>
+    """, unsafe_allow_html=True)
+    
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         email_i = st.text_input("Email professionnel")
