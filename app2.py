@@ -107,7 +107,7 @@ if not st.session_state.auth:
         
         if st.button("SE CONNECTER"):
             # Remplace par tes vrais identifiants
-            if email == "admin" and code == "1234":
+            if email == "tfb13@wanadoo.fr" and code == "Barfle041390":
                 st.session_state.auth = True
                 st.rerun()
             else:
