@@ -110,7 +110,7 @@ DATA_VIBRATIONS = {
     }
 }
 
-# --- 6. INTERFACE ET GÉNÉRATION ---
+# --- 6. INTERFACE ET GÉNÉRATION (AFFICHAGE SUR MESURE) ---
 st.title("🔮 VOTRE THÈME ANNUEL PRESTIGE")
 
 with st.form("form_global"):
@@ -121,7 +121,6 @@ with st.form("form_global"):
     st.write("📅 **DATE DE NAISSANCE**")
     c1, c2, c3 = st.columns([1, 1, 1.5]) 
     
-    # On commence en 2026 car c'est l'année cible du thème
     jour = c1.selectbox("Jour", list(range(1, 32)))
     mois = c2.selectbox("Mois", list(range(1, 13)))
     annee = c3.selectbox("Année", list(range(2026, 1919, -1))) 
@@ -131,25 +130,38 @@ with st.form("form_global"):
 if submit:
     if nom and prenom:
         try:
-            # CALCULS TECHNIQUES
+            # CALCULS
             date_naiss = datetime(annee, mois, jour)
-            # Calcul de l'année personnelle pour 2026
             v_annee = reduire(date_naiss.day + date_naiss.month + reduire(2026))
-            # Calcul de l'expression (NOM + PRENOM)
             v_expression = calculer_expression(f"{prenom} {nom}")
             
             # --- AFFICHAGE DU RÉSULTAT ---
             st.divider()
             st.header(f"✨ ANALYSE DE {prenom.upper()} {nom.upper()}")
 
-            # LE BANDEAU DE PERSONNALITÉ (C'est l'ajout "Prestige")
-            st.warning(f"🧬 **PROFIL D'EXPRESSION : NOMBRE {v_expression}**")
-            st.markdown(f"*{PROFIL_NOM[v_expression]}*")
+            # --- LE BANDEAU SUR MESURE (HTML) ---
+            # Crée un fond gris clair (#f0f2f6) et une police noire (#000000)
+            texte_personnalite = PROFIL_NOM[v_expression]
+            
+            st.markdown(f"""
+                <div style="
+                    background-color: #f0f2f6; 
+                    padding: 20px; 
+                    border-radius: 10px; 
+                    border: 1px solid #dcdcdc; 
+                    margin-bottom: 20px;
+                ">
+                    <h3 style="color: #000000; margin-top: 0; text-align: left;">🧬 PROFIL D'EXPRESSION : NOMBRE {v_expression}</h3>
+                    <p style="color: #000000; font-size: 1.1em; font-style: italic; margin-bottom: 0;">"{texte_personnalite}"</p>
+                </div>
+            """, unsafe_allow_html=True)
+            # -------------------------------------
             
             st.divider()
+            # Affichage de l'année personnelle (en bleu pour la distinction)
             st.info(f"📅 Votre Année Personnelle 2026 est la **Vibration {v_annee}**")
 
-            # BOUCLE SUR 12 MOIS (De Mai 2026 à Avril 2027)
+            # BOUCLE 12 MOIS
             m_start, y_start = 5, 2026
             occurrences = {}
 
@@ -158,12 +170,11 @@ if submit:
                 curr_y = y_start + (m_start + i - 1) // 12
                 v_mois = reduire(v_annee + curr_m)
                 
-                # Logique pour alterner les textes A, B, C si une vibration revient
                 count = occurrences.get(v_mois, 0)
                 variant_key = "A" if count == 0 else "B" if count == 1 else "C"
                 occurrences[v_mois] = count + 1
                 
-                # Récupération du texte dans VOTRE base DATA_VIBRATIONS
+                # Récupération sécurisée du texte (A, B ou C)
                 data = DATA_VIBRATIONS.get(v_mois, DATA_VIBRATIONS[1])
                 txt = data.get(variant_key, data["A"])
 
