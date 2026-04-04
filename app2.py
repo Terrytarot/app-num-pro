@@ -15,18 +15,20 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# --- 2. AUTHENTIFICATION (FORÇAGE NOIR NET) ---
+# --- 2. AUTHENTIFICATION (BLANC PUR ET NET) ---
 if 'auth' not in st.session_state: st.session_state.auth = False
 if not st.session_state.auth:
-    # Ce bloc CSS local force le titre h1 en noir et enlève l'ombre portée
+    # On définit un style spécifique pour le titre de connexion
     st.markdown("""
         <style>
             .auth-title {
-                color: #000000 !important;
+                color: #FFFFFF !important;
                 text-shadow: none !important;
-                font-weight: bold !important;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
                 text-align: center !important;
-                font-size: 3rem !important;
+                font-weight: 800 !important;
+                font-size: 2.5rem !important;
                 margin-bottom: 30px !important;
                 display: block !important;
             }
