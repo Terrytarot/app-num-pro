@@ -97,16 +97,19 @@ DATA_VIBRATIONS = {
         {"pro": "Cette phase de changement...", "coeur": "La communication est le moteur...", "argent": "L'argent est pour vous...", "bienetre": "Votre système nerveux..."}],
     6: [{"pro": "L'Harmonie relationnelle...", "coeur": "Le foyer est désormais...", "argent": "L'équilibre financier...", "bienetre": "Le corps et l'esprit..."},
         {"pro": "Votre rôle de stabilisateur...", "coeur": "L'harmonie familiale...", "argent": "La gestion de votre budget...", "bienetre": "Votre santé est..."}],
-    7: [{"pro": "Le temps semble s'arrêter...", "coeur": "Une certaine distance...", "argent": "La gestion de l'argent...", "bienetre": "Le repos de l'esprit..."},
-        {"pro": "Votre expertise est sollicitée...", "coeur": "La qualité de la relation...", "argent": "Le savoir est votre pouvoir...", "bienetre": "La pratique du jardinage..."}]
-8: [
+   7: [
+        {"pro": "Le temps semble s'arrêter...", "coeur": "Une certaine distance...", "argent": "La gestion de l'argent...", "bienetre": "Le repos de l'esprit..."},
+        {"pro": "Votre expertise est sollicitée...", "coeur": "La qualité de la relation...", "argent": "Le savoir est votre pouvoir...", "bienetre": "La pratique du jardinage..."}
+    ],
+    8: [
         {"pro": "L'heure est à la récolte...", "coeur": "Une passion intense...", "argent": "Les flux financiers...", "bienetre": "Votre énergie est combative..."},
         {"pro": "La maîtrise de votre destin...", "coeur": "Un engagement puissant...", "argent": "Réussite et expansion...", "bienetre": "Équilibre et force interne..."}
     ],
     9: [
         {"pro": "Vous arrivez au terme d'un cycle...", "coeur": "Une grande compassion...", "argent": "La prudence est de mise...", "bienetre": "Besoin de grand air..."},
         {"pro": "L'ouverture vers de nouveaux horizons...", "coeur": "L'amour universel...", "argent": "Détachement et fluidité...", "bienetre": "Régénération spirituelle..."}
-    ]}
+    ]
+} # <-- CETTE ACCOLADE FERME LE DICTIONNAIRE
 
 # --- 4. INTERFACE ---
 st.title("🔮 NUMÉROLOGIE PRESTIGE")
