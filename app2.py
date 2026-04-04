@@ -144,7 +144,6 @@ DATA_VIBRATIONS = {
         }
     ]
 }
-
 } # <-- CETTE ACCOLADE FERME LE DICTIONNAIRE
 
 # --- 4. INTERFACE ---
