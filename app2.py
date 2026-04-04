@@ -40,6 +40,15 @@ st.markdown("""
         border-radius: 10px !important;
         height: 3.5em !important;
     }
+    /* Style pour l'expander (fond blanc pour lisibilité) */
+    div[data-testid="stExpander"] {
+        background-color: #ffffff !important;
+        border: 2px solid #D4AF37 !important;
+        border-radius: 10px !important;
+    }
+    div[data-testid="stExpander"] p, div[data-testid="stExpander"] h4 {
+        color: #000000 !important;
+    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -54,7 +63,6 @@ if not st.session_state.auth:
         email = st.text_input("Email professionnel")
         code = st.text_input("Code d'accès", type="password")
         if st.button("SE CONNECTER"):
-            # REMPLACE PAR TES VRAIS ACCÈS ICI
             if email == "tfb13@wanadoo.fr" and code == "Barfle041390":
                 st.session_state.auth = True
                 st.rerun()
@@ -62,14 +70,13 @@ if not st.session_state.auth:
                 st.error("Identifiants incorrects")
     st.stop()
 
-# --- 3. DONNÉES ---
+# --- 3. LOGIQUE DE CALCUL ---
 def reduire(n):
     while n > 9:
         n = sum(int(digit) for digit in str(n))
     return n
 
-# J'ai remis ici tout ce que tu m'as transmis
-# --- 3. BASE DE DONNÉES INTÉGRALE (TEXTES LONGS) ---
+# --- 3. BASE DE DONNÉES INTÉGRALE ---
 DATA_VIBRATIONS = {
     1: [{
         "pro": "L'aube d'un cycle nouveau se lève sur votre Œuvre, marquant le début d'une ère où votre volonté individuelle devient le moteur principal de votre réussite. Cette vibration de primauté vous exhorte à l'initiative pure et à la sortie de votre zone de confort habituelle. Ne soyez point dans l'attente d'une validation extérieure, car l'univers favorise en ce moment les pionniers et ceux qui osent briser les codes établis. C'est le temps de l'affirmation, de l'indépendance et du commandement naturel. Forgez vos projets avec la force de celui qui trace son propre sillage dans une terre encore vierge d'idées.",
@@ -126,12 +133,10 @@ DATA_VIBRATIONS = {
         "bienetre": "Un grand besoin d'évasion et de ressourcement spirituel se fait sentir. Votre esprit a besoin de calme pour intégrer les leçons du cycle qui s'achève. La méditation, les séjours en bord de mer ou la lecture inspirante sont vos meilleurs alliés. Écoutez la fatigue émotionnelle qui peut survenir et accordez-vous de vrais moments de solitude choisie. Votre régénération passe par le silence et l'introspection."
     }]
 }
-} # <-- CETTE ACCOLADE FERME LE DICTIONNAIRE
 
 # --- 4. INTERFACE ---
 st.title("🔮 NUMÉROLOGIE PRESTIGE")
 
-# Utilisation d'un formulaire pour une validation stable
 with st.form("mon_formulaire_prestige"):
     col_a, col_b = st.columns(2)
     with col_a:
@@ -140,33 +145,25 @@ with st.form("mon_formulaire_prestige"):
         prenom = st.text_input("Prénom du client")
     
     date_naiss = st.date_input("Date de naissance", min_value=datetime(1940, 1, 1))
-    
-    # Le bouton de validation
     bouton_valider = st.form_submit_button("GÉNÉRER LE THÈME")
 
 if bouton_valider:
     if nom and prenom:
-        # 1. Calcul de la vibration (Ex: 14/05 -> 1+4+0+5 = 10 -> 1)
         chiffre_brut = date_naiss.day + date_naiss.month
         chiffre = reduire(chiffre_brut)
         
         st.success(f"Analyse vibratoire terminée pour {prenom} {nom}")
         
-        # 2. Affichage des résultats dans l'Expander (Tableau Blanc)
         with st.expander(f"✨ VOTRE SYNTHÈSE : VIBRATION {chiffre}", expanded=True):
-            # Rubrique PRO
             st.markdown("#### 💼 Vie Professionnelle")
             st.write(DATA_VIBRATIONS[chiffre][0]["pro"])
             
-            # Rubrique COEUR
             st.markdown("#### ❤️ Vie Affective")
             st.write(DATA_VIBRATIONS[chiffre][0]["coeur"])
             
-            # Rubrique ARGENT
             st.markdown("#### 💰 Finances & Abondance")
             st.write(DATA_VIBRATIONS[chiffre][0]["argent"])
             
-            # Rubrique BIEN-ÊTRE
             st.markdown("#### 🌿 Énergie & Bien-être")
             st.write(DATA_VIBRATIONS[chiffre][0]["bienetre"])
             
