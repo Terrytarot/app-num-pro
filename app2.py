@@ -110,7 +110,7 @@ DATA_VIBRATIONS = {
     }
 }
 
-# --- 5. LOGIQUE DE GÉNÉRATION ---
+# --- 6. INTERFACE ET GÉNÉRATION ---
 st.title("🔮 VOTRE THÈME ANNUEL PRESTIGE")
 
 with st.form("form_global"):
@@ -121,6 +121,7 @@ with st.form("form_global"):
     st.write("📅 **DATE DE NAISSANCE**")
     c1, c2, c3 = st.columns([1, 1, 1.5]) 
     
+    # On commence en 2026 car c'est l'année cible du thème
     jour = c1.selectbox("Jour", list(range(1, 32)))
     mois = c2.selectbox("Mois", list(range(1, 13)))
     annee = c3.selectbox("Année", list(range(2026, 1919, -1))) 
@@ -130,22 +131,25 @@ with st.form("form_global"):
 if submit:
     if nom and prenom:
         try:
-            # --- CALCULS PERSONNALISÉS ---
+            # CALCULS TECHNIQUES
             date_naiss = datetime(annee, mois, jour)
+            # Calcul de l'année personnelle pour 2026
             v_annee = reduire(date_naiss.day + date_naiss.month + reduire(2026))
+            # Calcul de l'expression (NOM + PRENOM)
             v_expression = calculer_expression(f"{prenom} {nom}")
             
-            # --- AFFICHAGE DU PROFIL ---
-            st.header(f"✨ ANALYSE DE {prenom.upper()} {nom.upper()}")
-            
-            with st.container():
-                st.markdown(f"### 🧬 Profil Vibratoire : Expression {v_expression}")
-                st.info(PROFIL_NOM[v_expression])
-            
-            st.subheader(f"📅 Année Personnelle 2026 : Vibration {v_annee}")
+            # --- AFFICHAGE DU RÉSULTAT ---
             st.divider()
+            st.header(f"✨ ANALYSE DE {prenom.upper()} {nom.upper()}")
 
-            # --- BOUCLE 12 MOIS ---
+            # LE BANDEAU DE PERSONNALITÉ (C'est l'ajout "Prestige")
+            st.warning(f"🧬 **PROFIL D'EXPRESSION : NOMBRE {v_expression}**")
+            st.markdown(f"*{PROFIL_NOM[v_expression]}*")
+            
+            st.divider()
+            st.info(f"📅 Votre Année Personnelle 2026 est la **Vibration {v_annee}**")
+
+            # BOUCLE SUR 12 MOIS (De Mai 2026 à Avril 2027)
             m_start, y_start = 5, 2026
             occurrences = {}
 
@@ -154,14 +158,16 @@ if submit:
                 curr_y = y_start + (m_start + i - 1) // 12
                 v_mois = reduire(v_annee + curr_m)
                 
+                # Logique pour alterner les textes A, B, C si une vibration revient
                 count = occurrences.get(v_mois, 0)
                 variant_key = "A" if count == 0 else "B" if count == 1 else "C"
                 occurrences[v_mois] = count + 1
                 
+                # Récupération du texte dans VOTRE base DATA_VIBRATIONS
                 data = DATA_VIBRATIONS.get(v_mois, DATA_VIBRATIONS[1])
                 txt = data.get(variant_key, data["A"])
 
-                with st.expander(f"📅 {obtenir_nom_mois(curr_m, curr_y).upper()} — VIBRATION {v_mois}", expanded=(i==0)):
+                with st.expander(f"📅 {obtenir_nom_mois(curr_m, curr_y).upper()} — VIBRATION {v_mois}"):
                     st.markdown(f"#### 💼 Vie Professionnelle")
                     st.write(txt['pro'])
                     st.markdown(f"#### ❤️ Vie Affective")
@@ -172,6 +178,6 @@ if submit:
                     st.write(txt['bienetre'])
                     
         except ValueError:
-            st.error("Date invalide (ex: 31 février). Veuillez corriger.")
+            st.error("Date invalide.")
     else:
         st.error("Veuillez remplir votre nom et votre prénom.")
